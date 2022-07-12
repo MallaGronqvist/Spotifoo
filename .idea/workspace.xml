@@ -1,49 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Spotifoo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/1989.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/appetitive-for-destruction.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/confessions-on-the-dance-floor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/hot-fuss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/nightmare.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/ray-of-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/spaghetti-incident.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/albums/vida.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/data.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/no-picture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/andy-you-are-a-star.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/change-your-mind.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/despacito.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/el-muro.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/forbidden-love.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/frozen.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/gas.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/i-love-new-york.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/jump.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/little-star.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/lo-que-paso-paso.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/night-train.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/paradise-city.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/since-i-dont-have-you.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/this-love.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/welcome-to-new-york" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/welcome-to-the-family.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/welcome-to-the-jungle.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/songs/when-we-were-young.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/SongListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/SongListView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/SongPlayer.java" afterDir="false" />
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Initial commit.">
+      <change afterPath="$PROJECT_DIR$/src/spotifoo/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/1989.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/1989.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/appetitive-for-destruction.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/appetitive-for-destruction.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/confessions-on-the-dance-floor.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/confessions-on-the-dance-floor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/hot-fuss.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/hot-fuss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/nightmare.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/nightmare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/ray-of-light.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/ray-of-light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/spaghetti-incident.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/spaghetti-incident.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/albums/vida.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/vida.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/no-picture.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/no-picture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/andy-you-are-a-star.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/andy-you-are-a-star.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/change-your-mind.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/change-your-mind.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/despacito.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/despacito.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/el-muro.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/el-muro.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/forbidden-love.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/forbidden-love.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/frozen.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/frozen.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/gas.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/gas.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/i-love-new-york.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/i-love-new-york.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/jump.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/jump.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/little-star.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/little-star.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/lo-que-paso-paso.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/lo-que-paso-paso.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/night-train.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/night-train.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/paradise-city.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/paradise-city.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/since-i-dont-have-you.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/since-i-dont-have-you.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/this-love.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/this-love.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/welcome-to-new-york" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/welcome-to-new-york" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/welcome-to-the-family.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/welcome-to-the-family.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/welcome-to-the-jungle.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/welcome-to-the-jungle.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/songs/when-we-were-young.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/songs/when-we-were-young.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +48,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -64,22 +60,53 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BmSJKf0l1QOH7JRercnbSPXkim" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Malla/IdeaProjects/Spotifoo/src"
+    "last_opened_file_path": "C:/Users/Malla/IdeaProjects/Spotifoo/src",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Malla\IdeaProjects\Spotifoo\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Malla\IdeaProjects\Spotifoo\assets" />
+      <recent name="C:\Users\Malla\IdeaProjects\Spotifoo\src" />
+      <recent name="C:\Users\Malla\IdeaProjects\Spotifoo" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spotifoo.Main" />
+      <module name="Spotifoo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="spotifoo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,6 +117,14 @@
       <option name="presentableId" value="Default" />
       <updated>1657509693386</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial commit.">
+      <created>1657511894647</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657511894647</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,5 +137,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Initial commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
   </component>
 </project>
