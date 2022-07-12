@@ -35,14 +35,8 @@ public class SongListView {
             System.out.println( "[" + i + "] " + song.getName());
             i++;
         }
-        System.out.println("[0] Back to main menu.");
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter your choice:");
-        String choice = keyboard.nextLine();
-        if (choice.equals("0")){
-            return;
-        } else {
-            int index = Integer.parseInt(choice) - 1;
+
+        int index = getChoice();
             Song song = songList.get(index);
             System.out.println("Now playing" + song.getName());
             System.out.println(song.getMp3FileName());
@@ -55,7 +49,7 @@ public class SongListView {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }
+
     }
 /*
     public void printSongsByArtist(SongListModel songListModel){
@@ -84,16 +78,7 @@ public class SongListView {
             i++;
         }
 
-        System.out.println("[0] Back to main menu.");
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter your choice:");
-        String choice = keyboard.nextLine();
-        int index;
-        if (choice.equals("0")){
-            return;
-        } else {
-            index = Integer.parseInt(choice) - 1;
-        }
+        int index = getChoice();
         String chosenArtist = artists.get(index);
 
         ArrayList<Song>songsByArtist = new ArrayList<>();
@@ -105,7 +90,43 @@ public class SongListView {
 
         printSongs(songsByArtist);
     }
-    public void printSongsByAlbum(SongListModel songsListModel){
+    public void filterByAlbum(SongListModel songListModel){
+        ArrayList<String>albums = songListModel.getAlbums();
 
+        int i = 1;
+        for(String album : albums) {
+            System.out.println("[" + i + "] " + album);
+            i++;
+        }
+
+        int index = getChoice();
+        String chosenAlbum = albums.get(index);
+
+        ArrayList<Song>songsByAlbum = new ArrayList<>();
+        for(Song song : songListModel.getSongList()){
+            if(song.getAlbum().equals(chosenAlbum)){
+                songsByAlbum.add(song);
+            }
+        }
+
+        printSongs(songsByAlbum);
+    }
+
+    public void filterByGenre(SongListModel songListModel) {
+
+    }
+
+    private int getChoice(){
+        System.out.println("[0] Back to main menu.");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter your choice:");
+        String choice = keyboard.nextLine();
+        int index;
+        if (choice.equals("0")){
+            return 0;
+        } else {
+            index = Integer.parseInt(choice) - 1;
+        }
+        return index;
     }
 }

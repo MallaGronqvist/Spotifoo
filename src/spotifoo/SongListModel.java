@@ -55,4 +55,16 @@ public class SongListModel {
         Collections.sort(artists);
     return artists;
     }
+
+    public ArrayList<String> getAlbums() {
+        ArrayList<String> albums = new ArrayList<>();
+        for (Song song : songList) {
+            String album = song.getAlbum();
+            if(!albums.contains(album)){
+                albums.add(album);
+            }
+        }
+        Collections.sort(albums);
+        return albums;
+    }
 }

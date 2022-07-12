@@ -21,7 +21,7 @@ public class SongListController {
                     songListView.printArtists(songList);
                     break;
                 case 3:
-                    System.out.println("Show songs by albums");
+                    songListView.filterByAlbum(songList);
                     break;
                 case 4:
                     System.out.println("Show songs by genre");
