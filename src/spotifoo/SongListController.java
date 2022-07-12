@@ -18,7 +18,7 @@ public class SongListController {
                     songListView.printSongs(songList.getSongList());
                     break;
                 case 2:
-                    songListView.printSongsByArtist(songList);
+                    songListView.printArtists(songList);
                     break;
                 case 3:
                     System.out.println("Show songs by albums");

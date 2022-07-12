@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class SongListView {
@@ -74,6 +75,36 @@ public class SongListView {
     }
 */
 
+    public void printArtists(SongListModel songListModel){
+        ArrayList<String> artists = songListModel.getArtists();
+
+        int i = 1;
+        for(String artist : artists) {
+            System.out.println("[" + i + "] " + artist);
+            i++;
+        }
+
+        System.out.println("[0] Back to main menu.");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter your choice:");
+        String choice = keyboard.nextLine();
+        int index;
+        if (choice.equals("0")){
+            return;
+        } else {
+            index = Integer.parseInt(choice) - 1;
+        }
+        String chosenArtist = artists.get(index);
+
+        ArrayList<Song>songsByArtist = new ArrayList<>();
+        for(Song song : songListModel.getSongList()){
+            if(song.getArtist().equals(chosenArtist)){
+                songsByArtist.add(song);
+            }
+        }
+
+        printSongs(songsByArtist);
+    }
     public void printSongsByAlbum(SongListModel songsListModel){
 
     }

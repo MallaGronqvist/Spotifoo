@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SongListModel {
     private ArrayList<Song> songList;
@@ -25,7 +26,6 @@ public class SongListModel {
             reader = new BufferedReader(new FileReader("assets/data.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
                 String [] stringArray = line.split(",");
                 Song song = new Song(stringArray);
                 songList.add(song);
@@ -42,5 +42,17 @@ public class SongListModel {
     public ArrayList<Song>getSongList() {
 
         return songList;
+    }
+
+    public ArrayList<String>getArtists() {
+        ArrayList<String> artists = new ArrayList<>();
+        for (Song song : songList) {
+            String artist = song.getArtist();
+            if(!artists.contains(artist)){
+                artists.add(artist);
+            }
+        }
+        Collections.sort(artists);
+    return artists;
     }
 }
