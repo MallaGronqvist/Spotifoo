@@ -24,7 +24,7 @@ public class SongListController {
                     songListView.filterByAlbum(songList);
                     break;
                 case 4:
-                    System.out.println("Show songs by genre");
+                    songListView.filterByGenre(songList);
                     break;
                 case 5:
                     System.out.println("Search");

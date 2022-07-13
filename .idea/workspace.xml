@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="First sketch.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657618089321</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First sketch.">
+      <created>1657619494341</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657619494341</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

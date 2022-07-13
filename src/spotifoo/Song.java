@@ -24,7 +24,7 @@ public class Song {
         this.name = stringArray[0];
         this.artist = stringArray[1];
         this.album = stringArray[2];
-        this.genre = Genre.valueOf(stringArray[3]);  // What if this fails?
+        this.genre = Genre.valueOf(stringArray[3].toUpperCase());  // What if this fails?
         this.mp3FileName = stringArray[4];
         this.pngFileName = stringArray[5];
     }

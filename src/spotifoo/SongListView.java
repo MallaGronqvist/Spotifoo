@@ -113,11 +113,30 @@ public class SongListView {
     }
 
     public void filterByGenre(SongListModel songListModel) {
+        Genre[] genres = Genre.values();
+        int i = 1;
+        for(Genre genre : genres){
+            String stringGenre = genre.toString().toLowerCase();
+            System.out.println("[" + i + "] " + stringGenre);
+            i++;
+        }
 
+        int index = getChoice();
+        Genre chosenGenre = genres[index];
+
+        ArrayList<Song>songsByGenre = new ArrayList<>();
+        for(Song song : songListModel.getSongList()){
+            if(song.getGenre() == chosenGenre){
+                songsByGenre.add(song);
+            }
+        }
+
+        printSongs(songsByGenre);
     }
 
     private int getChoice(){
         System.out.println("[0] Back to main menu.");
+
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter your choice:");
         String choice = keyboard.nextLine();
