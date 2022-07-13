@@ -18,7 +18,7 @@ public class SongListController {
                     songListView.printSongs(songList.getSongList());
                     break;
                 case 2:
-                    songListView.printArtists(songList);
+                    songListView.filterByArtist(songList);
                     break;
                 case 3:
                     songListView.filterByAlbum(songList);
@@ -27,10 +27,9 @@ public class SongListController {
                     songListView.filterByGenre(songList);
                     break;
                 case 5:
-                    System.out.println("Search");
+                    songListView.searchByName(songList);
                     break;
             }
-
         }while(again);
 
     }

@@ -4,13 +4,14 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class SongListView {
 
     private Menu mainMenu = new Menu();
-//    private static final Scanner keyboard = new Scanner(System.in);
 
     public SongListView() {
         mainMenu.setMenuTitle("***Main menu***");
@@ -30,13 +31,15 @@ public class SongListView {
     }
 
     public void printSongs(ArrayList<Song> songList){
-        int i = 1;
-        for (Song song : songList) {
-            System.out.println( "[" + i + "] " + song.getName());
-            i++;
-        }
+
+        printOptions("Available songs:", songList);
 
         int index = getChoice();
+        if (index == 0) {
+            return;
+        }
+
+            index--;
             Song song = songList.get(index);
             System.out.println("Now playing" + song.getName());
             System.out.println(song.getMp3FileName());
@@ -51,101 +54,126 @@ public class SongListView {
             }
 
     }
-/*
-    public void printSongsByArtist(SongListModel songListModel){
-        System.out.println("Enter name of artist:");
-        Scanner keyboard = new Scanner(System.in);
-        String artist;
-        artist = keyboard.nextLine();
 
-        ArrayList<Song> songsByArtist= new ArrayList<>();
-        for (Song song : songListModel.getSongList()) {
-            if (song.getArtist().equalsIgnoreCase(artist)){
-                songsByArtist.add(song);
-            }
-        }
-
-        printSongs(songsByArtist);
-    }
-*/
-
-    public void printArtists(SongListModel songListModel){
+    public void filterByArtist(SongListModel songListModel){
         ArrayList<String> artists = songListModel.getArtists();
 
-        int i = 1;
-        for(String artist : artists) {
-            System.out.println("[" + i + "] " + artist);
-            i++;
-        }
+        printOptions("Available artists:", artists);
 
         int index = getChoice();
-        String chosenArtist = artists.get(index);
+        if (index == 0){
+            return;
+        }else {
+            index--;
+            String chosenArtist = artists.get(index);
 
-        ArrayList<Song>songsByArtist = new ArrayList<>();
-        for(Song song : songListModel.getSongList()){
-            if(song.getArtist().equals(chosenArtist)){
-                songsByArtist.add(song);
+            ArrayList<Song> songsByArtist = new ArrayList<>();
+            for (Song song : songListModel.getSongList()) {
+                if (song.getArtist().equals(chosenArtist)) {
+                    songsByArtist.add(song);
+                }
             }
+            printSongs(songsByArtist);
         }
-
-        printSongs(songsByArtist);
     }
     public void filterByAlbum(SongListModel songListModel){
         ArrayList<String>albums = songListModel.getAlbums();
-
+/*
         int i = 1;
         for(String album : albums) {
             System.out.println("[" + i + "] " + album);
             i++;
         }
 
+ */
+        printOptions("Available albums:", albums);
+
         int index = getChoice();
-        String chosenAlbum = albums.get(index);
+        if (index == 0){
+            return;
+        }else {
+            index--;
+            String chosenAlbum = albums.get(index);
 
-        ArrayList<Song>songsByAlbum = new ArrayList<>();
-        for(Song song : songListModel.getSongList()){
-            if(song.getAlbum().equals(chosenAlbum)){
-                songsByAlbum.add(song);
+            ArrayList<Song> songsByAlbum = new ArrayList<>();
+            for (Song song : songListModel.getSongList()) {
+                if (song.getAlbum().equals(chosenAlbum)) {
+                    songsByAlbum.add(song);
+                }
             }
-        }
 
-        printSongs(songsByAlbum);
+            printSongs(songsByAlbum);
+        }
     }
 
     public void filterByGenre(SongListModel songListModel) {
         Genre[] genres = Genre.values();
-        int i = 1;
+ /*       int i = 1;
         for(Genre genre : genres){
             String stringGenre = genre.toString().toLowerCase();
             System.out.println("[" + i + "] " + stringGenre);
             i++;
         }
+  */
+        printOptions("Available genres:", List.of(Genre.values()));
 
         int index = getChoice();
-        Genre chosenGenre = genres[index];
+        if (index == 0){
+            return;
+        }else {
+            index--;
+            Genre chosenGenre = genres[index];
 
-        ArrayList<Song>songsByGenre = new ArrayList<>();
+            ArrayList<Song> songsByGenre = new ArrayList<>();
+            for (Song song : songListModel.getSongList()) {
+                if (song.getGenre() == chosenGenre) {
+                    songsByGenre.add(song);
+                }
+            }
+            // If not empty!
+            printSongs(songsByGenre);
+        }
+    }
+
+    public void searchByName(SongListModel songListModel) {
+        System.out.println("Search for  a song by name.");
+        System.out.println("Write the name of a song and press enter:");
+
+        Scanner keyboard = new Scanner(System.in);
+        String searchTerm;
+        searchTerm = keyboard.nextLine();
+
+        ArrayList<Song>songsBySearchName = new ArrayList<>();
         for(Song song : songListModel.getSongList()){
-            if(song.getGenre() == chosenGenre){
-                songsByGenre.add(song);
+            String songName = song.getName();
+            if(songName.toUpperCase().contains(searchTerm.toUpperCase())){
+                songsBySearchName.add(song);
             }
         }
 
-        printSongs(songsByGenre);
+        System.out.println("Results with search term " + searchTerm + ":");
+        printSongs(songsBySearchName);
     }
 
     private int getChoice(){
-        System.out.println("[0] Back to main menu.");
-
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter your choice:");
         String choice = keyboard.nextLine();
-        int index;
-        if (choice.equals("0")){
-            return 0;
-        } else {
-            index = Integer.parseInt(choice) - 1;
-        }
+        int index = Integer.parseInt(choice);
+
+        // Add input validation here.
+
         return index;
+    }
+
+    private void printOptions(String title, Collection<?>options){
+        System.out.println(title);
+        int i = 1;
+        Iterator<?>iterator = options.iterator();
+        while(iterator.hasNext()){
+            System.out.println("[" + i + "] " + iterator.next());
+            i++;
+        }
+        System.out.println("[0] Back to main menu.");
     }
 }

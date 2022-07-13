@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="First sketch.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Added function to filter songs by genre.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
@@ -113,7 +113,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657619494341</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added function to filter songs by genre.">
+      <created>1657690512247</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657690512247</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added function to filter songs by genre.">
+      <created>1657690538526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657690538526</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +145,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit." />
     <MESSAGE value="First sketch." />
-    <option name="LAST_COMMIT_MESSAGE" value="First sketch." />
+    <MESSAGE value="Added function to filter songs by genre." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added function to filter songs by genre." />
   </component>
 </project>

@@ -31,12 +31,7 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
-                "name='" + name + '\'' +
-                ", artist='" + artist + '\'' +
-                ", album='" + album + '\'' +
-                ", genre=" + genre +
-                '}';
+        return getName();
     }
 
     public String getMp3FileName() {
