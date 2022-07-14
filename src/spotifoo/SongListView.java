@@ -3,11 +3,8 @@ package spotifoo;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 import java.util.List;
-import java.util.Scanner;
 
 public class SongListView {
 
@@ -34,8 +31,9 @@ public class SongListView {
 
         printOptions("Available songs:", songList);
 
-        int index = getChoice();
+        int index = getChoice(songList.size());
         if (index == 0) {
+            clearConsoleScreen();
             return;
         }
 
@@ -60,7 +58,7 @@ public class SongListView {
 
         printOptions("Available artists:", artists);
 
-        int index = getChoice();
+        int index = getChoice(artists.size());
         if (index == 0){
             return;
         }else {
@@ -88,7 +86,7 @@ public class SongListView {
  */
         printOptions("Available albums:", albums);
 
-        int index = getChoice();
+        int index = getChoice(albums.size());
         if (index == 0){
             return;
         }else {
@@ -117,7 +115,7 @@ public class SongListView {
   */
         printOptions("Available genres:", List.of(Genre.values()));
 
-        int index = getChoice();
+        int index = getChoice(genres.length);
         if (index == 0){
             return;
         }else {
@@ -155,13 +153,27 @@ public class SongListView {
         printSongs(songsBySearchName);
     }
 
-    private int getChoice(){
+    private int getChoice(int numberOfOptions){
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter your choice:");
-        String choice = keyboard.nextLine();
-        int index = Integer.parseInt(choice);
 
-        // Add input validation here.
+        int index = 0;
+        boolean again = true;
+        do {
+            System.out.println("Enter your choice:");
+            String choice = keyboard.nextLine();
+            try {
+                index = Integer.parseInt(choice);
+                if(index >= 0 && index <= numberOfOptions) {
+                    again = false;
+                } else {
+                    throw new Exception();      //Type of exception?
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Try again.");
+            } catch (Exception e) {
+                System.out.println("Invalid input. Try again.");
+            }
+        } while (again);
 
         return index;
     }
@@ -176,4 +188,11 @@ public class SongListView {
         }
         System.out.println("[0] Back to main menu.");
     }
+
+    private void clearConsoleScreen() {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+    }
 }
+
+
