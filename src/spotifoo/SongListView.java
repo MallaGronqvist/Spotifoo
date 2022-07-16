@@ -191,7 +191,8 @@ public class SongListView {
         if(index == 0) {
             return index;
         }else {
-            return index--;
+            index--;
+            return index;
         }
     }
 
