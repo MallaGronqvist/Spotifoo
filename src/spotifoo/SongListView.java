@@ -39,18 +39,49 @@ public class SongListView {
 
             index--;
             Song song = songList.get(index);
-            System.out.println("Now playing" + song.getName());
-            System.out.println(song.getMp3FileName());
-            File file = new File("assets/songs/" + song.getMp3FileName());
-            File file2 = new File("assets/albums/" +song.getPngFileName());
+            playSongAndShowPicture(song);
 
+            /*
             try {
-                Desktop.getDesktop().open(file);
-                Desktop.getDesktop().open(file2);
+                if(Desktop.isDesktopSupported() && mp3File.exists() && mp3File.canRead()){
+                    Desktop.getDesktop().open(mp3File);
+                    if(pngFile.exists() && pngFile.canRead()){
+                        Desktop.getDesktop().open(pngFile);
+                    }else{
+                        Desktop.getDesktop().open(placeHolderImage);
+                    }
+                }else{
+                    System.exit(0);
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+*/
 
+    }
+
+    private void playSongAndShowPicture(Song song){
+        System.out.println("Now playing " + song.getMp3FileName());
+        File mp3File = new File("assets/songs/" + song.getMp3FileName());
+        File pngFile = new File("assets/albums/" +song.getPngFileName());
+        final String placeHolderFileName = "assets/no-picture.png";
+        File placeHolderImage = new File(placeHolderFileName);
+
+        try {
+            if(Desktop.isDesktopSupported())
+                Desktop.getDesktop().open(mp3File);
+            try {
+                Desktop.getDesktop().open(pngFile);
+            } catch (IOException e) {
+                Desktop.getDesktop().open(placeHolderImage);
+            } catch (IllegalArgumentException e) {
+                Desktop.getDesktop().open(placeHolderImage);
+            }
+        } catch (IOException e) {
+            System.exit(0);
+        } catch (IllegalArgumentException e) {
+            System.exit(0);
+        }
     }
 
     public void filterByArtist(SongListModel songListModel){
@@ -76,14 +107,7 @@ public class SongListView {
     }
     public void filterByAlbum(SongListModel songListModel){
         ArrayList<String>albums = songListModel.getAlbums();
-/*
-        int i = 1;
-        for(String album : albums) {
-            System.out.println("[" + i + "] " + album);
-            i++;
-        }
 
- */
         printOptions("Available albums:", albums);
 
         int index = getChoice(albums.size());
@@ -106,13 +130,7 @@ public class SongListView {
 
     public void filterByGenre(SongListModel songListModel) {
         Genre[] genres = Genre.values();
- /*       int i = 1;
-        for(Genre genre : genres){
-            String stringGenre = genre.toString().toLowerCase();
-            System.out.println("[" + i + "] " + stringGenre);
-            i++;
-        }
-  */
+
         printOptions("Available genres:", List.of(Genre.values()));
 
         int index = getChoice(genres.length);
@@ -128,7 +146,6 @@ public class SongListView {
                     songsByGenre.add(song);
                 }
             }
-            // If not empty!
             printSongs(songsByGenre);
         }
     }
@@ -179,12 +196,16 @@ public class SongListView {
     }
 
     private void printOptions(String title, Collection<?>options){
-        System.out.println(title);
-        int i = 1;
-        Iterator<?>iterator = options.iterator();
-        while(iterator.hasNext()){
-            System.out.println("[" + i + "] " + iterator.next());
-            i++;
+        if(!options.isEmpty()){
+            System.out.println(title);
+            int i = 1;
+            Iterator<?>iterator = options.iterator();
+            while(iterator.hasNext()){
+                System.out.println("[" + i + "] " + iterator.next());
+                i++;
+            }
+        } else {
+            System.out.println("No songs were found.");
         }
         System.out.println("[0] Back to main menu.");
     }
