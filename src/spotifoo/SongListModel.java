@@ -15,10 +15,6 @@ public class SongListModel {
         songList = new ArrayList<Song>();
     }
 
-    public void addSong(String name, String artist, String album, String genre, String mp3FileName, String pngFileName) {
-        songList.add((new Song(name, artist, album, genre, mp3FileName, pngFileName)));
-    }
-
     public void loadFromFile() {
         BufferedReader reader;
 
@@ -36,11 +32,9 @@ public class SongListModel {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-
     }
 
     public ArrayList<Song>getSongList() {
-
         return songList;
     }
 
@@ -55,9 +49,9 @@ public class SongListModel {
         Collections.sort(artists);
     return artists;
     }
-
     public ArrayList<String> getAlbums() {
         ArrayList<String> albums = new ArrayList<>();
+
         for (Song song : songList) {
             String album = song.getAlbum();
             if(!albums.contains(album)){

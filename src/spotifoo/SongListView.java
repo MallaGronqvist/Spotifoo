@@ -27,7 +27,7 @@ public class SongListView {
         return mainMenu.getMenuChoice();
     }
 
-    public void printSongs(ArrayList<Song> songList){
+    public void printSongs(ArrayList<Song> songList){  //How to name this?
 
         printOptions("Available songs:", songList);
 
@@ -37,9 +37,8 @@ public class SongListView {
             return;
         }
 
-            index--;
-            Song song = songList.get(index);
-            playSongAndShowPicture(song);
+        Song song = songList.get(index);
+        playSongAndShowPicture(song);
 
             /*
             try {
@@ -64,8 +63,8 @@ public class SongListView {
         System.out.println("Now playing " + song.getMp3FileName());
         File mp3File = new File("assets/songs/" + song.getMp3FileName());
         File pngFile = new File("assets/albums/" +song.getPngFileName());
-        final String placeHolderFileName = "assets/no-picture.png";
-        File placeHolderImage = new File(placeHolderFileName);
+        final String PLACEHOLDER_FILE = "assets/no-picture.png";
+        File placeHolderImage = new File(PLACEHOLDER_FILE);
 
         try {
             if(Desktop.isDesktopSupported())
@@ -93,7 +92,6 @@ public class SongListView {
         if (index == 0){
             return;
         }else {
-            index--;
             String chosenArtist = artists.get(index);
 
             ArrayList<Song> songsByArtist = new ArrayList<>();
@@ -114,7 +112,6 @@ public class SongListView {
         if (index == 0){
             return;
         }else {
-            index--;
             String chosenAlbum = albums.get(index);
 
             ArrayList<Song> songsByAlbum = new ArrayList<>();
@@ -137,7 +134,6 @@ public class SongListView {
         if (index == 0){
             return;
         }else {
-            index--;
             Genre chosenGenre = genres[index];
 
             ArrayList<Song> songsByGenre = new ArrayList<>();
@@ -192,7 +188,11 @@ public class SongListView {
             }
         } while (again);
 
-        return index;
+        if(index == 0) {
+            return index;
+        }else {
+            return index--;
+        }
     }
 
     private void printOptions(String title, Collection<?>options){

@@ -1,12 +1,10 @@
 package spotifoo;
 
 public class SongListController {
-
     SongListModel songList = new SongListModel();
     SongListView songListView = new SongListView();
 
     public void run() {
-
         songList.loadFromFile();
 
         boolean again = true;
@@ -31,6 +29,5 @@ public class SongListController {
                     break;
             }
         }while(again);
-
     }
 }

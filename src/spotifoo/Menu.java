@@ -20,10 +20,6 @@ public class Menu {
         public String getMenuText() {
             return menuText;
         }
-
-        public void setMenuText(String menuText) {
-            this.menuText = menuText;
-        }
     }
 
     private Vector<MenuItem>menuItems = new Vector<>();
@@ -41,22 +37,23 @@ public class Menu {
     public int getMenuChoice() {
         boolean again = true;
         do{
+            System.out.println("Enter your choice from the menu options:");
+            Scanner keyboard = new Scanner(System.in);
+            String choice = keyboard.nextLine();
             try{
-                System.out.println("Enter your choice from the menu options:");
-                Scanner keyboard = new Scanner(System.in);
-                String choice = keyboard.nextLine();
                 int i = Integer.parseInt(choice);           // Validate input first!
                 if (i >= 0 && i <= menuItems.size()) {
                     again = false;
                     return i;
                 } else {
-                    System.out.println("Incorrect input. Try again.");
+                    System.out.println("Invalid input. Try again.");
                 }
-            }catch(Exception e){
-
+            }catch(NumberFormatException e){
+                System.out.println("Invalid input. Try again.");
             }
         }while(again);
-        return 0;  // not needed!
+    // An extra return statement to keep the compiler happy.
+    return 0;
     }
     public void printMenuItems() {
         System.out.println(menuTitle);
