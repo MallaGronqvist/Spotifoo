@@ -11,22 +11,18 @@ public class Song {
     public Song() {
     }
 
-    public Song(String name, String artist, String album, String genre, String mp3FileName, String pngFileName) {
-        this.name = name;
-        this.artist = artist;
-        this.album = album;
-        this.genre = Genre.valueOf(genre);  // What if this fails?
-        this.mp3FileName = mp3FileName;
-        this.pngFileName = pngFileName;
-    }
-
     public Song(String[] stringArray) {
-        this.name = stringArray[0];
-        this.artist = stringArray[1];
-        this.album = stringArray[2];
-        this.genre = Genre.valueOf(stringArray[3].toUpperCase());  // What if this fails?
-        this.mp3FileName = stringArray[4];
-        this.pngFileName = stringArray[5];
+        try {
+            this.name = stringArray[0];
+            this.artist = stringArray[1];
+            this.album = stringArray[2];
+            this.genre = Genre.valueOf(stringArray[3].toUpperCase());
+            this.mp3FileName = stringArray[4];
+            this.pngFileName = stringArray[5];
+        } catch (IllegalArgumentException e) {
+            System.out.println("A problem has occurred while loading songs from file. " +
+                    "This may cause errors in playing some song(s).");
+        }
     }
 
     @Override

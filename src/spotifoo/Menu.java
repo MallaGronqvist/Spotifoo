@@ -41,7 +41,7 @@ public class Menu {
             Scanner keyboard = new Scanner(System.in);
             String choice = keyboard.nextLine();
             try{
-                int i = Integer.parseInt(choice);           // Validate input first!
+                int i = Integer.parseInt(choice);
                 if (i >= 0 && i <= menuItems.size()) {
                     again = false;
                     return i;

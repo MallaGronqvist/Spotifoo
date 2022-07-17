@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Adjusted some minor details.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Fixed a minor problem with indexing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/SongListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SongListView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657972830807</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed a minor problem with indexing.">
+      <created>1657973238038</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657973238038</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +185,7 @@
     <MESSAGE value="Worked on input handling and validation." />
     <MESSAGE value="Added handling for file errors and tested with all files." />
     <MESSAGE value="Adjusted some minor details." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted some minor details." />
+    <MESSAGE value="Fixed a minor problem with indexing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a minor problem with indexing." />
   </component>
 </project>

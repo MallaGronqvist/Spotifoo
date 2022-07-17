@@ -16,22 +16,18 @@ public class SongListModel {
     }
 
     public void loadFromFile() {
-        BufferedReader reader;
-
-        try {   // change this to try with resources
-            reader = new BufferedReader(new FileReader("assets/data.txt"));
+        try (FileReader fileReader = new FileReader(FILE_NAME);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)){
             String line;
-            while ((line = reader.readLine()) != null) {
-                String [] stringArray = line.split(",");
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] stringArray = line.split(",");
                 Song song = new Song(stringArray);
                 songList.add(song);
-            }
-            reader.close();
-            } catch (FileNotFoundException ex) {
-                throw new RuntimeException(ex);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+                }
+        } catch (IOException e) {
+            System.out.println("List of songs could not be loaded from file.");
+            System.exit(0);
+        }
     }
 
     public ArrayList<Song>getSongList() {
