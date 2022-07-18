@@ -35,23 +35,21 @@ public class Menu {
     }
 
     public int getMenuChoice() {
-        boolean again = true;
-        do{
+        boolean validInput = false;
+        while (!validInput){
             System.out.println("Enter your choice from the menu options:");
             Scanner keyboard = new Scanner(System.in);
             String choice = keyboard.nextLine();
             try{
                 int i = Integer.parseInt(choice);
                 if (i >= 0 && i <= menuItems.size()) {
-                    again = false;
+                    validInput = true;
                     return i;
-                } else {
-                    System.out.println("Invalid input. Try again.");
-                }
-            }catch(NumberFormatException e){
+                } else throw new IllegalArgumentException();
+            }catch(IllegalArgumentException e){
                 System.out.println("Invalid input. Try again.");
             }
-        }while(again);
+        }
     // An extra return statement to keep the compiler happy.
     return 0;
     }

@@ -1,18 +1,17 @@
 package spotifoo;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SongListModel {
+public class SpotifooModel {
     private ArrayList<Song> songList;
     private static final String FILE_NAME = "assets/data.txt";
 
-    public SongListModel() {
-        songList = new ArrayList<Song>();
+    public SpotifooModel() {
+        songList = new ArrayList<>();
     }
 
     public void loadFromFile() {

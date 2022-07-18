@@ -19,7 +19,7 @@ public class Song {
             this.genre = Genre.valueOf(stringArray[3].toUpperCase());
             this.mp3FileName = stringArray[4];
             this.pngFileName = stringArray[5];
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
             System.out.println("A problem has occurred while loading songs from file. " +
                     "This may cause errors in playing some song(s).");
         }

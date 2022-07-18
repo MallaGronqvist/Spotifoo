@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Spotifoo:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spotifoo_jar</output-path>
+    <root id="archive" name="Spotifoo.jar">
+      <element id="module-output" name="Spotifoo" />
+    </root>
+  </artifact>
+</component>
