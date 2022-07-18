@@ -5,6 +5,10 @@ import java.util.Vector;
 
 public class Menu {
 
+    public String getMenuTitle() {
+        return menuTitle;
+    }
+
     private class MenuItem {
 
         private String menuText;
@@ -60,6 +64,10 @@ public class Menu {
             System.out.println("[" + i + "] " + item.getMenuText());
             i++;
         }
+    }
+
+    public Vector<MenuItem> getMenuItems() {
+        return menuItems;
     }
 }
 

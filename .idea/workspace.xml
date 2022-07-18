@@ -6,10 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Did some more refactoring.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Implemented super search.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SpotifooController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SpotifooView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658132844133</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implemented super search.">
+      <created>1658135118733</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658135118733</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +213,7 @@
     <MESSAGE value="Fixed a minor problem with indexing." />
     <MESSAGE value="Did some testing and refactoring." />
     <MESSAGE value="Did some more refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some more refactoring." />
+    <MESSAGE value="Implemented super search." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented super search." />
   </component>
 </project>

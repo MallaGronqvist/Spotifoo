@@ -9,6 +9,10 @@ import java.util.List;
 public class SpotifooView {
 
     private Menu mainMenu = new Menu();
+    private static final String SONGS_TITLE = "Available songs:";
+    private static final String ALBUMS_TITLE = "Available albums:";
+    private static final String ARTISTS_TITLE = "Available artists:";
+    private static final String GENRES_TITLE = "Available genres:";
 
     public SpotifooView() {
         mainMenu.setMenuTitle("***Main menu***");
@@ -21,6 +25,7 @@ public class SpotifooView {
     }
 
     public void printMainMenu(){
+
         mainMenu.printMenuItems();
     }
 
@@ -30,7 +35,7 @@ public class SpotifooView {
 
     public void printSongs(ArrayList<Song> songList){  //How to name this?
 
-        printOptions("Available songs:", songList);
+        printOptions(SONGS_TITLE, songList);
 
         int index = getChoice(songList.size());
         if (index == 0) {
@@ -39,10 +44,6 @@ public class SpotifooView {
         index--;
         Song song = songList.get(index);
         playSongAndShowPicture(song);
-    }
-
-    public void printSongsBySearchTerm(ArrayList<Song> songList, String searchTerm) {
-
     }
 
     private void playSongAndShowPicture(Song song){
@@ -69,7 +70,7 @@ public class SpotifooView {
     public void filterByArtist(SpotifooModel spotifooModel){
         ArrayList<String> artists = spotifooModel.getArtists();
 
-        printOptions("Available artists:", artists);
+        printOptions(ARTISTS_TITLE, artists);
 
         int index = getChoice(artists.size());
         if (index == 0){
@@ -90,7 +91,7 @@ public class SpotifooView {
     public void filterByAlbum(SpotifooModel spotifooModel){
         ArrayList<String>albums = spotifooModel.getAlbums();
 
-        printOptions("Available albums:", albums);
+        printOptions(ALBUMS_TITLE, albums);
 
         int index = getChoice(albums.size());
         if (index == 0){
@@ -112,7 +113,7 @@ public class SpotifooView {
     public void filterByGenre(SpotifooModel spotifooModel) {
         Genre[] genres = Genre.values();
 
-        printOptions("Available genres:", List.of(Genre.values()));
+        printOptions(GENRES_TITLE, List.of(Genre.values()));
 
         int index = getChoice(genres.length);
         if (index == 0){
@@ -186,12 +187,14 @@ public class SpotifooView {
     }
 
     private void clearConsoleScreen() {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+     //   System.out.print("\033[2J\033[1;1H");
+       //     System.out.print("\033[H\033[2J");
+      //      System.out.flush();
+
     }
 
     public void superSearch(SpotifooModel spotifooModel) {
-        System.out.println("Search for  a song by any searcg term.");
+        System.out.println("Search for  a song by any search term.");
         System.out.println("Write the search term and press enter:");
 
         Scanner keyboard = new Scanner(System.in);
@@ -200,8 +203,8 @@ public class SpotifooView {
 
         ArrayList<Song>songsBySearchName = new ArrayList<>();
         for(Song song : spotifooModel.getSongList()){
-            String songName = song.getSearchableString();
-            if(songName.toUpperCase().contains(searchTerm.toUpperCase())){
+            String songInfo = song.getSearchableString();
+            if(songInfo.toUpperCase().contains(searchTerm.toUpperCase())){
                 songsBySearchName.add(song);
             }
         }
