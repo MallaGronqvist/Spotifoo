@@ -17,6 +17,7 @@ public class SpotifooView {
         mainMenu.addItem("Albums");
         mainMenu.addItem("Genres");
         mainMenu.addItem("Search");
+        mainMenu.addItem("Super Search");
     }
 
     public void printMainMenu(){
@@ -40,6 +41,10 @@ public class SpotifooView {
         playSongAndShowPicture(song);
     }
 
+    public void printSongsBySearchTerm(ArrayList<Song> songList, String searchTerm) {
+
+    }
+
     private void playSongAndShowPicture(Song song){
         File mp3File = new File("assets/songs/" + song.getMp3FileName());
         File pngFile = new File("assets/albums/" +song.getPngFileName());
@@ -49,7 +54,7 @@ public class SpotifooView {
         try {
             if(Desktop.isDesktopSupported()) {
                 Desktop.getDesktop().open(mp3File);
-                System.out.println("Now playing " + song.getMp3FileName());
+                System.out.println("Now playing " + song.getName());
             }
             try {
                 Desktop.getDesktop().open(pngFile);
@@ -57,7 +62,7 @@ public class SpotifooView {
                 Desktop.getDesktop().open(placeHolderImage);
             }
         } catch (IOException | IllegalArgumentException e) {
-            System.exit(0);
+            System.out.println("Could not play the song.");
         }
     }
 
@@ -183,6 +188,26 @@ public class SpotifooView {
     private void clearConsoleScreen() {
             System.out.print("\033[H\033[2J");
             System.out.flush();
+    }
+
+    public void superSearch(SpotifooModel spotifooModel) {
+        System.out.println("Search for  a song by any searcg term.");
+        System.out.println("Write the search term and press enter:");
+
+        Scanner keyboard = new Scanner(System.in);
+        String searchTerm;
+        searchTerm = keyboard.nextLine();
+
+        ArrayList<Song>songsBySearchName = new ArrayList<>();
+        for(Song song : spotifooModel.getSongList()){
+            String songName = song.getSearchableString();
+            if(songName.toUpperCase().contains(searchTerm.toUpperCase())){
+                songsBySearchName.add(song);
+            }
+        }
+
+        System.out.println("Results with search term " + searchTerm + ":");
+        printSongs(songsBySearchName);
     }
 }
 

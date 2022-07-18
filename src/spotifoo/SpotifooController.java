@@ -22,6 +22,7 @@ public class SpotifooController {
                 case 3 -> spotifooView.filterByAlbum(spotifooModel);
                 case 4 -> spotifooView.filterByGenre(spotifooModel);
                 case 5 -> spotifooView.searchByName(spotifooModel);
+                case 6 -> spotifooView.superSearch(spotifooModel);
             }
         }while(again);
     }

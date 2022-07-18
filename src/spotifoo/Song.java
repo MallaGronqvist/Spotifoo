@@ -27,7 +27,13 @@ public class Song {
 
     @Override
     public String toString() {
-        return getName();
+        return name + ", " +
+                artist + ", " +
+                album;
+    }
+
+    public String getSearchableString(){
+        return new String (name + artist + album);
     }
 
     public String getMp3FileName() {
