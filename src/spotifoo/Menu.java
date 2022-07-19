@@ -11,9 +11,9 @@ public class Menu {
 
     private class MenuItem {
 
-        private String menuText;
+        private final String menuText;
 
-        public MenuItem(){
+        public MenuItem() {
             menuText = "";
         }
 
@@ -26,7 +26,7 @@ public class Menu {
         }
     }
 
-    private Vector<MenuItem>menuItems = new Vector<>();
+    private final Vector<MenuItem> menuItems = new Vector<>();
     private String menuTitle;
 
     public void addItem(String menuText) {
@@ -40,27 +40,28 @@ public class Menu {
 
     public int getMenuChoice() {
         boolean validInput = false;
-        while (!validInput){
+        while (!validInput) {
             System.out.println("Enter your choice from the menu options:");
             Scanner keyboard = new Scanner(System.in);
             String choice = keyboard.nextLine();
-            try{
+            try {
                 int i = Integer.parseInt(choice);
                 if (i >= 0 && i <= menuItems.size()) {
                     validInput = true;
                     return i;
                 } else throw new IllegalArgumentException();
-            }catch(IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println("Invalid input. Try again.");
             }
         }
-    // An extra return statement to keep the compiler happy.
-    return 0;
+        // An extra return statement to keep the compiler happy.
+        return 0;
     }
+
     public void printMenuItems() {
         System.out.println(menuTitle);
         int i = 1;
-        for(var item : menuItems) {
+        for (var item : menuItems) {
             System.out.println("[" + i + "] " + item.getMenuText());
             i++;
         }

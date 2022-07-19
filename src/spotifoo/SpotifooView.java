@@ -3,12 +3,14 @@ package spotifoo;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 
 public class SpotifooView {
 
-    private Menu mainMenu = new Menu();
+    private final Menu mainMenu = new Menu();
     private static final String SONGS_TITLE = "Available songs:";
     private static final String ALBUMS_TITLE = "Available albums:";
     private static final String ARTISTS_TITLE = "Available artists:";
@@ -24,17 +26,12 @@ public class SpotifooView {
         mainMenu.addItem("Super Search");
     }
 
-    public void printMainMenu(){
+    public void printMainMenu() { mainMenu.printMenuItems();}
 
-        mainMenu.printMenuItems();
+    public int getMainMenuChoice() { return mainMenu.getMenuChoice();
     }
 
-    public int getMainMenuChoice(){
-        return mainMenu.getMenuChoice();
-    }
-
-    public void printSongs(ArrayList<Song> songList){  //How to name this?
-
+    public void printSongs(ArrayList<Song> songList) {  //How to name this?
         printOptions(SONGS_TITLE, songList);
 
         int index = getChoice(songList.size());
@@ -43,58 +40,76 @@ public class SpotifooView {
         }
         index--;
         Song song = songList.get(index);
-        playSongAndShowPicture(song);
+
+        boolean canPlaySong = playSong(song);
+        if(canPlaySong){
+            displayPicture(song);
+        }
     }
 
-    private void playSongAndShowPicture(Song song){
-        File mp3File = new File("assets/songs/" + song.getMp3FileName());
-        File pngFile = new File("assets/albums/" +song.getPngFileName());
+    private boolean playSong(Song song){
+        final String SONGS_PATH = "assets/songs/";
+        File mp3File = new File(SONGS_PATH + song.getMp3FileName());
+
+            try {
+                if(Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().open(mp3File);
+                    System.out.println("Now playing " + song.getName());
+                    return true;
+                }
+            } catch (IOException | IllegalArgumentException e) {
+                System.out.println("Could not play the song.");;
+            }
+            return false;
+    }
+
+    private void displayPicture(Song song){
+        final String PNG_PATH = "assets/albums/";
+        File pngFile = new File(PNG_PATH + song.getPngFileName());
         final String PLACEHOLDER_FILE = "assets/no-picture.png";
         File placeHolderImage = new File(PLACEHOLDER_FILE);
 
         try {
-            if(Desktop.isDesktopSupported()) {
-                Desktop.getDesktop().open(mp3File);
-                System.out.println("Now playing " + song.getName());
-            }
-            try {
-                Desktop.getDesktop().open(pngFile);
-            } catch (IOException | IllegalArgumentException e) {
-                Desktop.getDesktop().open(placeHolderImage);
-            }
+            Desktop.getDesktop().open(pngFile);
         } catch (IOException | IllegalArgumentException e) {
-            System.out.println("Could not play the song.");
+            try {
+                Desktop.getDesktop().open(placeHolderImage);
+            } catch (IOException | IllegalArgumentException ex) {
+                System.out.println("Could not display album art.");
+            }
         }
     }
 
-    public void filterByArtist(SpotifooModel spotifooModel){
+    public void filterByArtist(SpotifooModel spotifooModel) {
         ArrayList<String> artists = spotifooModel.getArtists();
 
         printOptions(ARTISTS_TITLE, artists);
 
         int index = getChoice(artists.size());
-        if (index == 0){
+        if (index == 0) {
             return;
         }
         index--;
 
         String chosenArtist = artists.get(index);
-        System.out.println(chosenArtist);
+
         ArrayList<Song> songsByArtist = new ArrayList<>();
         for (Song song : spotifooModel.getSongList()) {
             if (song.getArtist().equals(chosenArtist)) {
                 songsByArtist.add(song);
             }
         }
+
         printSongs(songsByArtist);
     }
-    public void filterByAlbum(SpotifooModel spotifooModel){
-        ArrayList<String>albums = spotifooModel.getAlbums();
+
+    public void filterByAlbum(SpotifooModel spotifooModel) {
+        ArrayList<String> albums = spotifooModel.getAlbums();
 
         printOptions(ALBUMS_TITLE, albums);
 
         int index = getChoice(albums.size());
-        if (index == 0){
+        if (index == 0) {
             return;
         }
         index--;
@@ -116,7 +131,7 @@ public class SpotifooView {
         printOptions(GENRES_TITLE, List.of(Genre.values()));
 
         int index = getChoice(genres.length);
-        if (index == 0){
+        if (index == 0) {
             return;
         }
         index--;
@@ -128,6 +143,7 @@ public class SpotifooView {
                 songsByGenre.add(song);
             }
         }
+
         printSongs(songsByGenre);
     }
 
@@ -139,10 +155,10 @@ public class SpotifooView {
         String searchTerm;
         searchTerm = keyboard.nextLine();
 
-        ArrayList<Song>songsBySearchName = new ArrayList<>();
-        for(Song song : spotifooModel.getSongList()){
+        ArrayList<Song> songsBySearchName = new ArrayList<>();
+        for (Song song : spotifooModel.getSongList()) {
             String songName = song.getName();
-            if(songName.toUpperCase().contains(searchTerm.toUpperCase())){
+            if (songName.toUpperCase().contains(searchTerm.toUpperCase())) {
                 songsBySearchName.add(song);
             }
         }
@@ -151,29 +167,30 @@ public class SpotifooView {
         printSongs(songsBySearchName);
     }
 
-    private int getChoice(int numberOfOptions){
+    private int getChoice(int numberOfOptions) {
         Scanner keyboard = new Scanner(System.in);
 
         int index = 0;
         boolean validInput = false;
-        while(!validInput){
+        while (!validInput) {
             System.out.println("Enter your choice:");
             String choice = keyboard.nextLine();
             try {
                 index = Integer.parseInt(choice);
-                if(index >= 0 && index <= numberOfOptions) {
+                if (index >= 0 && index <= numberOfOptions) {
                     validInput = true;
                 } else throw new IllegalArgumentException();
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid input. Try again.");
             }
         }
-        clearConsoleScreen();
+
+        clearConsoleScreen();      // Make this available also to menu class
         return index;
     }
 
-    private void printOptions(String title, Collection<?>options){
-        if(!options.isEmpty()){
+    private void printOptions(String title, Collection<?> options) {
+        if (!options.isEmpty()) {
             System.out.println(title);
             int i = 1;
             for (var option : options) {
@@ -187,9 +204,9 @@ public class SpotifooView {
     }
 
     private void clearConsoleScreen() {
-     //   System.out.print("\033[2J\033[1;1H");
-       //     System.out.print("\033[H\033[2J");
-      //      System.out.flush();
+        //   System.out.print("\033[2J\033[1;1H");
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
     }
 
@@ -201,10 +218,10 @@ public class SpotifooView {
         String searchTerm;
         searchTerm = keyboard.nextLine();
 
-        ArrayList<Song>songsBySearchName = new ArrayList<>();
-        for(Song song : spotifooModel.getSongList()){
+        ArrayList<Song> songsBySearchName = new ArrayList<>();
+        for (Song song : spotifooModel.getSongList()) {
             String songInfo = song.getSearchableString();
-            if(songInfo.toUpperCase().contains(searchTerm.toUpperCase())){
+            if (songInfo.toUpperCase().contains(searchTerm.toUpperCase())) {
                 songsBySearchName.add(song);
             }
         }

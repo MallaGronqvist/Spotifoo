@@ -32,8 +32,8 @@ public class Song {
                 album;
     }
 
-    public String getSearchableString(){
-        return new String (name + artist + album);
+    public String getSearchableString() {
+        return name + artist + album;
     }
 
     public String getMp3FileName() {

@@ -24,6 +24,6 @@ public class SpotifooController {
                 case 5 -> spotifooView.searchByName(spotifooModel);
                 case 6 -> spotifooView.superSearch(spotifooModel);
             }
-        }while(again);
+        } while (again);
     }
 }
