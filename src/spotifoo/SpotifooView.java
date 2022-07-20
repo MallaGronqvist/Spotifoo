@@ -234,7 +234,7 @@ public class SpotifooView {
         System.out.println(song.getName() + " was added to playlist.");
     }
 
-    public void createPlaylist(SpotifooModel spotifooModel) {
+    public void namePlaylist(SpotifooModel spotifooModel) {
         System.out.println("Enter a name for the playlist:");
         Scanner keyboard = new Scanner(System.in);
         String name = keyboard.nextLine();

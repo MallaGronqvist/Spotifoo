@@ -61,7 +61,7 @@ public class Menu {
     }
 
     public void printMenuItems() {
-        System.out.println(menuTitle);
+        System.out.println(getMenuTitle());
         int i = 1;
         for (var item : menuItems) {
             System.out.println("[" + i + "] " + item.getMenuText());
@@ -70,10 +70,6 @@ public class Menu {
         if(!menuTitle.equals("MAIN MENU")){
             System.out.println("[0] Back to main menu");
         }
-    }
-
-    public Vector<MenuItem> getMenuItems() {
-        return menuItems;
     }
 
     private void clearConsoleScreen() {

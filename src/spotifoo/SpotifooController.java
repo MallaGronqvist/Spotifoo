@@ -24,7 +24,7 @@ public class SpotifooController {
         searchMenu.addItem("Search by any search term in song name, artist and album");
 
         playListMenu.setMenuTitle(("PLAYLIST MENU"));
-        playListMenu.addItem("Create a playlist");
+        playListMenu.addItem("Name your playlist");
         playListMenu.addItem("Add a song to your playlist");
         playListMenu.addItem("Remove a song from your playlist");
         playListMenu.addItem("Play a song from your playlist");
@@ -54,7 +54,7 @@ public class SpotifooController {
                     while(printPlayListMenu){
                         playListMenu.printMenuItems();
                         switch (playListMenu.getMenuChoice()){
-                            case 1 -> spotifooView.createPlaylist(spotifooModel);
+                            case 1 -> spotifooView.namePlaylist(spotifooModel);
                             case 2 -> spotifooView.addSongToPlaylist(spotifooModel);
                             case 3 -> spotifooView.removeSongFromPlaylist(spotifooModel);
                             case 4 -> spotifooView.playSongFromPlaylist(spotifooModel);
