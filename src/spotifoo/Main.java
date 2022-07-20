@@ -2,10 +2,10 @@ package spotifoo;
 
 public class Main {
     public static void main(String[] args) {
-        SpotifooModel spotifooModel = new SpotifooModel();
-        SpotifooView spotifooView = new SpotifooView();
-        SpotifooController spotifooController = new SpotifooController(spotifooModel, spotifooView);
+        MusicPlayerModel musicPlayerModel = new MusicPlayerModel();
+        MusicPlayerView musicPlayerView = new MusicPlayerView();
+        MusicPlayerController musicPlayerController = new MusicPlayerController(musicPlayerModel, musicPlayerView);
 
-        spotifooController.run();
+        musicPlayerController.run();
     }
 }

@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-public class SpotifooView {
+public class MusicPlayerView {
 
 
     private static final String SONGS_TITLE = "Available songs:";
@@ -65,8 +65,8 @@ public class SpotifooView {
         }
     }
 
-    public void filterByArtist(SpotifooModel spotifooModel) {
-        ArrayList<String> artists = spotifooModel.getArtists();
+    public void filterByArtist(MusicPlayerModel musicPlayerModel) {
+        ArrayList<String> artists = musicPlayerModel.getArtists();
 
         printOptions(ARTISTS_TITLE, artists);
 
@@ -79,7 +79,7 @@ public class SpotifooView {
         String chosenArtist = artists.get(index);
 
         ArrayList<Song> songsByArtist = new ArrayList<>();
-        for (Song song : spotifooModel.getSongList()) {
+        for (Song song : musicPlayerModel.getSongList()) {
             if (song.getArtist().equals(chosenArtist)) {
                 songsByArtist.add(song);
             }
@@ -88,8 +88,8 @@ public class SpotifooView {
         chooseSongToPlayFromSongList(songsByArtist);
     }
 
-    public void filterByAlbum(SpotifooModel spotifooModel) {
-        ArrayList<String> albums = spotifooModel.getAlbums();
+    public void filterByAlbum(MusicPlayerModel musicPlayerModel) {
+        ArrayList<String> albums = musicPlayerModel.getAlbums();
 
         printOptions(ALBUMS_TITLE, albums);
 
@@ -101,7 +101,7 @@ public class SpotifooView {
         String chosenAlbum = albums.get(index);
 
         ArrayList<Song> songsByAlbum = new ArrayList<>();
-        for (Song song : spotifooModel.getSongList()) {
+        for (Song song : musicPlayerModel.getSongList()) {
             if (song.getAlbum().equals(chosenAlbum)) {
                 songsByAlbum.add(song);
             }
@@ -110,7 +110,7 @@ public class SpotifooView {
         chooseSongToPlayFromSongList(songsByAlbum);
     }
 
-    public void filterByGenre(SpotifooModel spotifooModel) {
+    public void filterByGenre(MusicPlayerModel musicPlayerModel) {
         Genre[] genres = Genre.values();
 
         printOptions(GENRES_TITLE, List.of(Genre.values()));
@@ -123,7 +123,7 @@ public class SpotifooView {
         Genre chosenGenre = genres[index];
 
         ArrayList<Song> songsByGenre = new ArrayList<>();
-        for (Song song : spotifooModel.getSongList()) {
+        for (Song song : musicPlayerModel.getSongList()) {
             if (song.getGenre() == chosenGenre) {
                 songsByGenre.add(song);
             }
@@ -132,7 +132,7 @@ public class SpotifooView {
         chooseSongToPlayFromSongList(songsByGenre);
     }
 
-    public void searchByName(SpotifooModel spotifooModel) {
+    public void searchByName(MusicPlayerModel musicPlayerModel) {
         System.out.println("Search for  a song by name.");
         System.out.println("Write the name of a song and press enter:");
 
@@ -141,7 +141,7 @@ public class SpotifooView {
         searchTerm = keyboard.nextLine();
 
         ArrayList<Song> songsBySearchName = new ArrayList<>();
-        for (Song song : spotifooModel.getSongList()) {
+        for (Song song : musicPlayerModel.getSongList()) {
             String songName = song.getName();
             if (songName.toUpperCase().contains(searchTerm.toUpperCase())) {
                 songsBySearchName.add(song);
@@ -193,7 +193,7 @@ public class SpotifooView {
         System.out.flush();
     }
 
-    public void superSearch(SpotifooModel spotifooModel) {
+    public void superSearch(MusicPlayerModel musicPlayerModel) {
         System.out.println("Search for  a song by any search term.");
         System.out.println("Write the search term and press enter:");
 
@@ -202,7 +202,7 @@ public class SpotifooView {
         searchTerm = keyboard.nextLine();
 
         ArrayList<Song> songsBySearchName = new ArrayList<>();
-        for (Song song : spotifooModel.getSongList()) {
+        for (Song song : musicPlayerModel.getSongList()) {
             String songInfo = song.getSearchableString();
             if (songInfo.toUpperCase().contains(searchTerm.toUpperCase())) {
                 songsBySearchName.add(song);
@@ -213,50 +213,59 @@ public class SpotifooView {
         chooseSongToPlayFromSongList(songsBySearchName);
     }
 
-    public void playSongFromPlaylist(SpotifooModel spotifooModel){
-        System.out.println(spotifooModel.getPlaylist().getName());
-        chooseSongToPlayFromSongList(spotifooModel.getPlaylist().getPlaylist());
+    public void playSongFromPlaylist(MusicPlayerModel musicPlayerModel){
+        System.out.println(musicPlayerModel.getPlaylist().getName());
+        chooseSongToPlayFromSongList(musicPlayerModel.getPlaylist().getPlaylist());
     }
 
-    public void addSongToPlaylist(SpotifooModel spotifooModel) {
-        printOptions(SONGS_TITLE, spotifooModel.getSongList());
+    public void addSongToPlaylist(MusicPlayerModel musicPlayerModel) {
+        printOptions(SONGS_TITLE, musicPlayerModel.getSongList());
 
         System.out.println("Enter number of the song you want to add to playlist "
-                + spotifooModel.getPlaylist().getName() + ":");
+                + musicPlayerModel.getPlaylist().getName() + ":");
 
-        int index = getChoice(spotifooModel.getSongList().size());
+        int index = getChoice(musicPlayerModel.getSongList().size());
         if(index == 0){
             return;
         }
         index--;
-        Song song = spotifooModel.getSongList().get(index);
-        spotifooModel.getPlaylist().addSong(song);
+        Song song = musicPlayerModel.getSongList().get(index);
+        musicPlayerModel.getPlaylist().addSong(song);
         System.out.println(song.getName() + " was added to playlist.");
     }
 
-    public void namePlaylist(SpotifooModel spotifooModel) {
+    public void namePlaylist(MusicPlayerModel musicPlayerModel) {
         System.out.println("Enter a name for the playlist:");
         Scanner keyboard = new Scanner(System.in);
         String name = keyboard.nextLine();
 
-        spotifooModel.getPlaylist().setName(name);
+        musicPlayerModel.getPlaylist().setName(name);
 
-        System.out.println("A playlist with name " + name + " has been created.");
+        System.out.println("Your playlist has been named '" + name + "'");
+        waitForEnter();
     }
 
-    public void removeSongFromPlaylist(SpotifooModel spotifooModel) {
-        printOptions(SONGS_TITLE, spotifooModel.getPlaylist().getPlaylist());
+    public void removeSongFromPlaylist(MusicPlayerModel musicPlayerModel) {
+        printOptions(SONGS_TITLE, musicPlayerModel.getPlaylist().getPlaylist());
         System.out.println("Enter number of the song you want to remove from playlist "
-        + spotifooModel.getPlaylist().getName() + ":");
+        + musicPlayerModel.getPlaylist().getName() + ":");
 
-        int index = getChoice(spotifooModel.getPlaylist().getPlaylist().size());
+        int index = getChoice(musicPlayerModel.getPlaylist().getPlaylist().size());
         if(index == 0){
             return;
         }
         index--;
-        Song song = spotifooModel.getPlaylist().getPlaylist().get(index);
-        spotifooModel.getPlaylist().removeSong(song);
+        Song song = musicPlayerModel.getPlaylist().getPlaylist().get(index);
+        musicPlayerModel.getPlaylist().removeSong(song);
         System.out.println(song.getName() + " was removed from playlist.");
+    }
+
+    public void waitForEnter(){
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Press enter to continue.....");
+
+        s.nextLine();
     }
 }
 

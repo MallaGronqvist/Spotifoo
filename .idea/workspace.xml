@@ -6,13 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Did some refactoring and tested to run the program on a mac. Clearscreen works on mac.">
-      <change afterPath="$PROJECT_DIR$/src/spotifoo/Playlist.java" afterDir="false" />
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="First version of playlist functionality. &#10;Did also some refactoring.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SpotifooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SpotifooModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/SpotifooView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="spotifoo.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="spotifoo.Main" />
       <module name="Spotifoo" />
       <extension name="coverage">
@@ -206,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658233276403</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="First version of playlist functionality. &#10;Did also some refactoring.">
+      <created>1658318330279</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658318330279</updated>
+    </task>
+    <task id="LOCAL-00018" summary="First version of playlist functionality. &#10;Did also some refactoring.">
+      <created>1658318856145</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1658318856145</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,7 +248,8 @@
     <MESSAGE value="Implemented super search." />
     <MESSAGE value="Did some refactoring." />
     <MESSAGE value="Did some refactoring and tested to run the program on a mac. Clearscreen works on mac." />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some refactoring and tested to run the program on a mac. Clearscreen works on mac." />
+    <MESSAGE value="First version of playlist functionality. &#10;Did also some refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="First version of playlist functionality. &#10;Did also some refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

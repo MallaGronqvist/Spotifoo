@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SpotifooModel {
+public class MusicPlayerModel {
     private final ArrayList<Song> songList;
     private final Playlist playlist;
     private static final String FILE_NAME = "assets/data.txt";
 
-    public SpotifooModel() {
+    public MusicPlayerModel() {
         songList = new ArrayList<>();
         playlist = new Playlist();
     }

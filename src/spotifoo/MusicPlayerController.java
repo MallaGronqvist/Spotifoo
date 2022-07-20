@@ -1,15 +1,15 @@
 package spotifoo;
 
-public class SpotifooController {
-    private SpotifooModel spotifooModel;
-    private SpotifooView spotifooView;
+public class MusicPlayerController {
+    private MusicPlayerModel musicPlayerModel;
+    private MusicPlayerView musicPlayerView;
     private final Menu mainMenu = new Menu();
     private final Menu searchMenu = new Menu();
     private final Menu playListMenu = new Menu();
 
-    public SpotifooController(SpotifooModel spotifooModel, SpotifooView spotifooView) {
-        this.spotifooModel = spotifooModel;
-        this.spotifooView = spotifooView;
+    public MusicPlayerController(MusicPlayerModel musicPlayerModel, MusicPlayerView musicPlayerView) {
+        this.musicPlayerModel = musicPlayerModel;
+        this.musicPlayerView = musicPlayerView;
 
         mainMenu.setMenuTitle("MAIN MENU");
         mainMenu.addItem("Songs");
@@ -31,22 +31,22 @@ public class SpotifooController {
     }
 
     public void run() {
-        spotifooModel.loadFromFile();
+        musicPlayerModel.loadFromFile();
 
         boolean again = true;
 
         do {
             mainMenu.printMenuItems();
             switch (mainMenu.getMenuChoice()) {
-                case 1 -> spotifooView.chooseSongToPlayFromSongList(spotifooModel.getSongList());
-                case 2 -> spotifooView.filterByArtist(spotifooModel);
-                case 3 -> spotifooView.filterByAlbum(spotifooModel);
-                case 4 -> spotifooView.filterByGenre(spotifooModel);
+                case 1 -> musicPlayerView.chooseSongToPlayFromSongList(musicPlayerModel.getSongList());
+                case 2 -> musicPlayerView.filterByArtist(musicPlayerModel);
+                case 3 -> musicPlayerView.filterByAlbum(musicPlayerModel);
+                case 4 -> musicPlayerView.filterByGenre(musicPlayerModel);
                 case 5 -> {
                         searchMenu.printMenuItems();
                         switch (searchMenu.getMenuChoice()){
-                            case 1 -> spotifooView.searchByName(spotifooModel);
-                            case 2 -> spotifooView.superSearch(spotifooModel);
+                            case 1 -> musicPlayerView.searchByName(musicPlayerModel);
+                            case 2 -> musicPlayerView.superSearch(musicPlayerModel);
                         }
                 }
                 case 6 -> {
@@ -54,10 +54,10 @@ public class SpotifooController {
                     while(printPlayListMenu){
                         playListMenu.printMenuItems();
                         switch (playListMenu.getMenuChoice()){
-                            case 1 -> spotifooView.namePlaylist(spotifooModel);
-                            case 2 -> spotifooView.addSongToPlaylist(spotifooModel);
-                            case 3 -> spotifooView.removeSongFromPlaylist(spotifooModel);
-                            case 4 -> spotifooView.playSongFromPlaylist(spotifooModel);
+                            case 1 -> musicPlayerView.namePlaylist(musicPlayerModel);
+                            case 2 -> musicPlayerView.addSongToPlaylist(musicPlayerModel);
+                            case 3 -> musicPlayerView.removeSongFromPlaylist(musicPlayerModel);
+                            case 4 -> musicPlayerView.playSongFromPlaylist(musicPlayerModel);
                             case 0 -> printPlayListMenu = false;
                     }
 
