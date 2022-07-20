@@ -48,12 +48,14 @@ public class Menu {
                 int i = Integer.parseInt(choice);
                 if (i >= 0 && i <= menuItems.size()) {
                     validInput = true;
+                    clearConsoleScreen();
                     return i;
                 } else throw new IllegalArgumentException();
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid input. Try again.");
             }
         }
+
         // An extra return statement to keep the compiler happy.
         return 0;
     }
@@ -65,10 +67,18 @@ public class Menu {
             System.out.println("[" + i + "] " + item.getMenuText());
             i++;
         }
+        if(!menuTitle.equals("MAIN MENU")){
+            System.out.println("[0] Back to main menu");
+        }
     }
 
     public Vector<MenuItem> getMenuItems() {
         return menuItems;
+    }
+
+    private void clearConsoleScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
 

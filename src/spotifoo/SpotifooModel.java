@@ -8,10 +8,12 @@ import java.util.Collections;
 
 public class SpotifooModel {
     private final ArrayList<Song> songList;
+    private final Playlist playlist;
     private static final String FILE_NAME = "assets/data.txt";
 
     public SpotifooModel() {
         songList = new ArrayList<>();
+        playlist = new Playlist();
     }
 
     public void loadFromFile() {
@@ -57,5 +59,9 @@ public class SpotifooModel {
         }
         Collections.sort(albums);
         return albums;
+    }
+
+    public Playlist getPlaylist() {
+        return playlist;
     }
 }

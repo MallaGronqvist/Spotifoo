@@ -10,28 +10,13 @@ import java.util.Scanner;
 
 public class SpotifooView {
 
-    private final Menu mainMenu = new Menu();
+
     private static final String SONGS_TITLE = "Available songs:";
     private static final String ALBUMS_TITLE = "Available albums:";
     private static final String ARTISTS_TITLE = "Available artists:";
     private static final String GENRES_TITLE = "Available genres:";
 
-    public SpotifooView() {
-        mainMenu.setMenuTitle("***Main menu***");
-        mainMenu.addItem("Songs");
-        mainMenu.addItem("Artists");
-        mainMenu.addItem("Albums");
-        mainMenu.addItem("Genres");
-        mainMenu.addItem("Search");
-        mainMenu.addItem("Super Search");
-    }
-
-    public void printMainMenu() { mainMenu.printMenuItems();}
-
-    public int getMainMenuChoice() { return mainMenu.getMenuChoice();
-    }
-
-    public void printSongs(ArrayList<Song> songList) {  //How to name this?
+    public void chooseSongToPlayFromSongList(ArrayList<Song> songList) {  //How to name this?
         printOptions(SONGS_TITLE, songList);
 
         int index = getChoice(songList.size());
@@ -100,7 +85,7 @@ public class SpotifooView {
             }
         }
 
-        printSongs(songsByArtist);
+        chooseSongToPlayFromSongList(songsByArtist);
     }
 
     public void filterByAlbum(SpotifooModel spotifooModel) {
@@ -122,7 +107,7 @@ public class SpotifooView {
             }
         }
 
-        printSongs(songsByAlbum);
+        chooseSongToPlayFromSongList(songsByAlbum);
     }
 
     public void filterByGenre(SpotifooModel spotifooModel) {
@@ -144,7 +129,7 @@ public class SpotifooView {
             }
         }
 
-        printSongs(songsByGenre);
+        chooseSongToPlayFromSongList(songsByGenre);
     }
 
     public void searchByName(SpotifooModel spotifooModel) {
@@ -164,7 +149,7 @@ public class SpotifooView {
         }
 
         System.out.println("Results with search term " + searchTerm + ":");
-        printSongs(songsBySearchName);
+        chooseSongToPlayFromSongList(songsBySearchName);
     }
 
     private int getChoice(int numberOfOptions) {
@@ -185,7 +170,7 @@ public class SpotifooView {
             }
         }
 
-        clearConsoleScreen();      // Make this available also to menu class
+        clearConsoleScreen();
         return index;
     }
 
@@ -204,10 +189,8 @@ public class SpotifooView {
     }
 
     private void clearConsoleScreen() {
-        //   System.out.print("\033[2J\033[1;1H");
         System.out.print("\033[H\033[2J");
         System.out.flush();
-
     }
 
     public void superSearch(SpotifooModel spotifooModel) {
@@ -227,7 +210,53 @@ public class SpotifooView {
         }
 
         System.out.println("Results with search term " + searchTerm + ":");
-        printSongs(songsBySearchName);
+        chooseSongToPlayFromSongList(songsBySearchName);
+    }
+
+    public void playSongFromPlaylist(SpotifooModel spotifooModel){
+        System.out.println(spotifooModel.getPlaylist().getName());
+        chooseSongToPlayFromSongList(spotifooModel.getPlaylist().getPlaylist());
+    }
+
+    public void addSongToPlaylist(SpotifooModel spotifooModel) {
+        printOptions(SONGS_TITLE, spotifooModel.getSongList());
+
+        System.out.println("Enter number of the song you want to add to playlist "
+                + spotifooModel.getPlaylist().getName() + ":");
+
+        int index = getChoice(spotifooModel.getSongList().size());
+        if(index == 0){
+            return;
+        }
+        index--;
+        Song song = spotifooModel.getSongList().get(index);
+        spotifooModel.getPlaylist().addSong(song);
+        System.out.println(song.getName() + " was added to playlist.");
+    }
+
+    public void createPlaylist(SpotifooModel spotifooModel) {
+        System.out.println("Enter a name for the playlist:");
+        Scanner keyboard = new Scanner(System.in);
+        String name = keyboard.nextLine();
+
+        spotifooModel.getPlaylist().setName(name);
+
+        System.out.println("A playlist with name " + name + " has been created.");
+    }
+
+    public void removeSongFromPlaylist(SpotifooModel spotifooModel) {
+        printOptions(SONGS_TITLE, spotifooModel.getPlaylist().getPlaylist());
+        System.out.println("Enter number of the song you want to remove from playlist "
+        + spotifooModel.getPlaylist().getName() + ":");
+
+        int index = getChoice(spotifooModel.getPlaylist().getPlaylist().size());
+        if(index == 0){
+            return;
+        }
+        index--;
+        Song song = spotifooModel.getPlaylist().getPlaylist().get(index);
+        spotifooModel.getPlaylist().removeSong(song);
+        System.out.println(song.getName() + " was removed from playlist.");
     }
 }
 
