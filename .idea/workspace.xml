@@ -6,12 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="First version of playlist functionality. &#10;Did also some refactoring.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Renamed classes and added WaitForEnter -function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/SpotifooView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Playlist.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658318856145</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Renamed classes and added WaitForEnter -function.">
+      <created>1658319896414</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658319896414</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,7 +257,8 @@
     <MESSAGE value="Did some refactoring." />
     <MESSAGE value="Did some refactoring and tested to run the program on a mac. Clearscreen works on mac." />
     <MESSAGE value="First version of playlist functionality. &#10;Did also some refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="First version of playlist functionality. &#10;Did also some refactoring." />
+    <MESSAGE value="Renamed classes and added WaitForEnter -function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed classes and added WaitForEnter -function." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

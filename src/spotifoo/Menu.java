@@ -68,7 +68,7 @@ public class Menu {
             i++;
         }
         if(!menuTitle.equals("MAIN MENU")){
-            System.out.println("[0] Back to main menu");
+            System.out.println("[0] Back to previous menu");
         }
     }
 

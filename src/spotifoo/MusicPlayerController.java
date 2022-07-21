@@ -38,16 +38,20 @@ public class MusicPlayerController {
         do {
             mainMenu.printMenuItems();
             switch (mainMenu.getMenuChoice()) {
-                case 1 -> musicPlayerView.chooseSongToPlayFromSongList(musicPlayerModel.getSongList());
+                case 1 -> musicPlayerView.chooseSongToPlayFromList(musicPlayerModel.getSongList());
                 case 2 -> musicPlayerView.filterByArtist(musicPlayerModel);
                 case 3 -> musicPlayerView.filterByAlbum(musicPlayerModel);
                 case 4 -> musicPlayerView.filterByGenre(musicPlayerModel);
                 case 5 -> {
+                    boolean printSearchMenu = true;
+                    while(printSearchMenu){
                         searchMenu.printMenuItems();
                         switch (searchMenu.getMenuChoice()){
                             case 1 -> musicPlayerView.searchByName(musicPlayerModel);
                             case 2 -> musicPlayerView.superSearch(musicPlayerModel);
+                            case 0 -> printSearchMenu = false;
                         }
+                    }
                 }
                 case 6 -> {
                     boolean printPlayListMenu = true;

@@ -14,6 +14,7 @@ public class MusicPlayerModel {
     public MusicPlayerModel() {
         songList = new ArrayList<>();
         playlist = new Playlist();
+        playlist.setName("Unnamed");
     }
 
     public void loadFromFile() {

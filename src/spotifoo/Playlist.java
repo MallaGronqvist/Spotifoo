@@ -23,10 +23,6 @@ public class Playlist {
         return playlist;
     }
 
-    public void setPlaylist(ArrayList<Song> playlist) {
-        this.playlist = playlist;
-    }
-
     public void addSong(Song song){
         playlist.add(song);
     }
