@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class MusicPlayerView {
 
-
     private static final String SONGS_TITLE = "Available songs:";
     private static final String ALBUMS_TITLE = "Available albums:";
     private static final String ARTISTS_TITLE = "Available artists:";
@@ -33,8 +32,8 @@ public class MusicPlayerView {
     }
 
     private boolean playSong(Song song){
-        final String SONGS_PATH = "assets/songs/";
-        File mp3File = new File(SONGS_PATH + song.getMp3FileName());
+
+        File mp3File = new File(song.getPathToMP3File());
 
             try {
                 if(Desktop.isDesktopSupported()) {
@@ -49,10 +48,10 @@ public class MusicPlayerView {
     }
 
     private void displayPicture(Song song){
-        final String PNG_PATH = "assets/albums/";
-        File pngFile = new File(PNG_PATH + song.getPngFileName());
-        final String PLACEHOLDER_FILE = "assets/no-picture.png";
-        File placeHolderImage = new File(PLACEHOLDER_FILE);
+
+        File pngFile = new File(song.getPathToPNGFile());
+
+        File placeHolderImage = new File(song.getPathToPlaceHolderFile());
 
         try {
             Desktop.getDesktop().open(pngFile);

@@ -6,12 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Did some refactoring.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Did some more refactoring.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658407379784</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Did some more refactoring.">
+      <created>1658490747028</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1658490747028</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,13 +263,13 @@
     <MESSAGE value="Adjusted some minor details." />
     <MESSAGE value="Fixed a minor problem with indexing." />
     <MESSAGE value="Did some testing and refactoring." />
-    <MESSAGE value="Did some more refactoring." />
     <MESSAGE value="Implemented super search." />
     <MESSAGE value="Did some refactoring and tested to run the program on a mac. Clearscreen works on mac." />
     <MESSAGE value="First version of playlist functionality. &#10;Did also some refactoring." />
     <MESSAGE value="Renamed classes and added WaitForEnter -function." />
     <MESSAGE value="Did some refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some refactoring." />
+    <MESSAGE value="Did some more refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Did some more refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

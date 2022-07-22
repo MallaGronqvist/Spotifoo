@@ -8,6 +8,10 @@ public class Song {
     private String mp3FileName;
     private String pngFileName;
 
+    private final static String SONGS_PATH = "assets/songs/";
+    private final static String PNG_PATH = "assets/albums/";
+    private final static String PLACEHOLDER_FILE = "assets/no-picture.png";
+
     public Song() {}
 
     public Song(String[] stringArray) {
@@ -57,5 +61,17 @@ public class Song {
 
     public Genre getGenre() {
         return genre;
+    }
+
+    public String getPathToMP3File(){
+        return SONGS_PATH + getMp3FileName();
+    }
+
+    public String getPathToPNGFile(){
+        return PNG_PATH + getPngFileName();
+    }
+
+    public String getPathToPlaceHolderFile(){
+        return PLACEHOLDER_FILE;
     }
 }
