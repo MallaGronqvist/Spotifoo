@@ -37,6 +37,26 @@ public class MusicPlayerModel {
         return songList;
     }
 
+    public Song getSongFromSongList(int index){
+        index--;
+        Song song = songList.get(index);
+        return song;
+    }
+
+    public void addSongToPlaylist(Song song){
+        playlist.addSong(song);
+    }
+
+    public Song getSongFromPlaylist(int index){
+        index--;
+        Song song = playlist.getSong(index);
+        return song;
+    }
+
+    public void removeSongFromPlaylist(Song song){
+        playlist.removeSong(song);
+    }
+
     public ArrayList<String> getArtists() {
         ArrayList<String> artists = new ArrayList<>();
         for (Song song : songList) {
@@ -64,5 +84,57 @@ public class MusicPlayerModel {
 
     public Playlist getPlaylist() {
         return playlist;
+    }
+
+    public ArrayList<Song> getSongsByArtist(String chosenArtist){
+        ArrayList<Song> songsByArtist = new ArrayList<>();
+        for (Song song : songList) {
+            if (song.getArtist().equals(chosenArtist)) {
+                songsByArtist.add(song);
+            }
+        }
+        return songsByArtist;
+    }
+
+    public ArrayList<Song> getSongsByAlbum(String chosenAlbum){
+        ArrayList<Song> songsByAlbum = new ArrayList<>();
+        for (Song song : songList) {
+            if (song.getAlbum().equals(chosenAlbum)) {
+                songsByAlbum.add(song);
+            }
+        }
+        return songsByAlbum;
+    }
+
+    public ArrayList<Song> getSongsByGenre(Genre chosenGenre){
+        ArrayList<Song> songsByGenre = new ArrayList<>();
+        for (Song song : songList) {
+            if (song.getGenre() == chosenGenre) {
+                songsByGenre.add(song);
+            }
+        }
+        return songsByGenre;
+    }
+
+    public ArrayList<Song> getSongsBySearchName(String searchTerm) {
+        ArrayList<Song> songsBySearchName = new ArrayList<>();
+        for (Song song : songList) {
+            String songName = song.getName();
+            if (songName.toUpperCase().contains(searchTerm.toUpperCase())) {
+                songsBySearchName.add(song);
+            }
+        }
+        return songsBySearchName;
+    }
+
+    public ArrayList<Song> getSongsByAnySearchTerm(String searchTerm) {
+        ArrayList<Song> songsByAnySearchTerm = new ArrayList<>();
+        for (Song song : songList) {
+            String songInfo = song.getSearchableString();
+            if (songInfo.toUpperCase().contains(searchTerm.toUpperCase())) {
+                songsByAnySearchTerm.add(song);
+            }
+        }
+        return songsByAnySearchTerm;
     }
 }

@@ -63,8 +63,7 @@ public class MusicPlayerController {
                             case 3 -> musicPlayerView.removeSongFromPlaylist(musicPlayerModel);
                             case 4 -> musicPlayerView.playSongFromPlaylist(musicPlayerModel);
                             case 0 -> printPlayListMenu = false;
-                    }
-
+                        }
                     }
                 }
             }

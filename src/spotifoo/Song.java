@@ -8,8 +8,7 @@ public class Song {
     private String mp3FileName;
     private String pngFileName;
 
-    public Song() {
-    }
+    public Song() {}
 
     public Song(String[] stringArray) {
         try {
@@ -48,31 +47,15 @@ public class Song {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getArtist() {
         return artist;
-    }
-
-    public void setArtist(String artist) {
-        this.artist = artist;
     }
 
     public String getAlbum() {
         return album;
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
-    }
-
     public Genre getGenre() {
         return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
     }
 }

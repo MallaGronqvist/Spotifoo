@@ -30,4 +30,9 @@ public class Playlist {
     public void removeSong(Song song){
         playlist.remove(song);
     }
+
+    public Song getSong(int index) {
+        Song song = playlist.get(index);
+        return song;
+    }
 }

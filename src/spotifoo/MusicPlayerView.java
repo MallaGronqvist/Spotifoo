@@ -21,8 +21,8 @@ public class MusicPlayerView {
 
         int index = getChoice(songList.size());
         if (backToPreviousMenu(index)) return;
-        index--;
-        Song song = songList.get(index);
+
+        Song song = songList.get(--index);
 
         boolean canPlaySong = playSong(song);
         if(canPlaySong){
@@ -72,16 +72,10 @@ public class MusicPlayerView {
 
         int index = getChoice(artists.size());
         if (backToPreviousMenu(index)) return;
-        index--;
 
-        String chosenArtist = artists.get(index);
+        String chosenArtist = artists.get(--index);
 
-        ArrayList<Song> songsByArtist = new ArrayList<>();
-        for (Song song : musicPlayerModel.getSongList()) {
-            if (song.getArtist().equals(chosenArtist)) {
-                songsByArtist.add(song);
-            }
-        }
+        ArrayList<Song> songsByArtist = musicPlayerModel.getSongsByArtist(chosenArtist);
 
         chooseSongToPlayFromList(songsByArtist);
     }
@@ -92,16 +86,12 @@ public class MusicPlayerView {
         printOptions(ALBUMS_TITLE, albums);
 
         int index = getChoice(albums.size());
-        if (backToPreviousMenu(index)) return;
-        index--;
-        String chosenAlbum = albums.get(index);
 
-        ArrayList<Song> songsByAlbum = new ArrayList<>();
-        for (Song song : musicPlayerModel.getSongList()) {
-            if (song.getAlbum().equals(chosenAlbum)) {
-                songsByAlbum.add(song);
-            }
-        }
+        if (backToPreviousMenu(index)) return;
+
+        String chosenAlbum = albums.get((--index));
+
+        ArrayList<Song> songsByAlbum = musicPlayerModel.getSongsByAlbum(chosenAlbum);
 
         chooseSongToPlayFromList(songsByAlbum);
     }
@@ -112,16 +102,12 @@ public class MusicPlayerView {
         printOptions(GENRES_TITLE, List.of(Genre.values()));
 
         int index = getChoice(genres.length);
-        if (backToPreviousMenu(index)) return;
-        index--;
-        Genre chosenGenre = genres[index];
 
-        ArrayList<Song> songsByGenre = new ArrayList<>();
-        for (Song song : musicPlayerModel.getSongList()) {
-            if (song.getGenre() == chosenGenre) {
-                songsByGenre.add(song);
-            }
-        }
+        if (backToPreviousMenu(index)) return;
+
+        Genre chosenGenre = genres[--index];
+
+        ArrayList<Song> songsByGenre = musicPlayerModel.getSongsByGenre(chosenGenre);
 
         chooseSongToPlayFromList(songsByGenre);
     }
@@ -134,13 +120,7 @@ public class MusicPlayerView {
         String searchTerm = askForSearchTerm("Search for  a song by name.",
                 "Write the name of a song and press enter:");
 
-        ArrayList<Song> songsBySearchName = new ArrayList<>();
-        for (Song song : musicPlayerModel.getSongList()) {
-            String songName = song.getName();
-            if (songName.toUpperCase().contains(searchTerm.toUpperCase())) {
-                songsBySearchName.add(song);
-            }
-        }
+        ArrayList<Song> songsBySearchName = musicPlayerModel.getSongsBySearchName(searchTerm);
 
         System.out.println("Results with search term " + searchTerm + ":");
         chooseSongToPlayFromList(songsBySearchName);
@@ -191,16 +171,10 @@ public class MusicPlayerView {
         String searchTerm = askForSearchTerm("Search for  a song by any search term.",
                 "Write the search term and press enter:");
 
-        ArrayList<Song> songsBySearchName = new ArrayList<>();
-        for (Song song : musicPlayerModel.getSongList()) {
-            String songInfo = song.getSearchableString();
-            if (songInfo.toUpperCase().contains(searchTerm.toUpperCase())) {
-                songsBySearchName.add(song);
-            }
-        }
+        ArrayList<Song> songsByAnySearchTerm = musicPlayerModel.getSongsByAnySearchTerm(searchTerm);
 
         System.out.println("Results with search term " + searchTerm + ":");
-        chooseSongToPlayFromList(songsBySearchName);
+        chooseSongToPlayFromList(songsByAnySearchTerm);
     }
 
     private String askForSearchTerm(String x, String x1) {
@@ -226,9 +200,9 @@ public class MusicPlayerView {
 
         int index = getChoice(musicPlayerModel.getSongList().size());
         if (backToPreviousMenu(index)) return;
-        index--;
-        Song song = musicPlayerModel.getSongList().get(index);
-        musicPlayerModel.getPlaylist().addSong(song);
+
+        Song song = musicPlayerModel.getSongFromSongList(index);
+        musicPlayerModel.addSongToPlaylist(song);
 
         System.out.println(song.getName() + " was added to playlist.");
 
@@ -255,9 +229,9 @@ public class MusicPlayerView {
 
         int index = getChoice(musicPlayerModel.getPlaylist().getPlaylist().size());
         if (backToPreviousMenu(index)) return;
-        index--;
-        Song song = musicPlayerModel.getPlaylist().getPlaylist().get(index);
-        musicPlayerModel.getPlaylist().removeSong(song);
+
+        Song song = musicPlayerModel.getSongFromPlaylist(index);
+        musicPlayerModel.removeSongFromPlaylist(song);
 
         System.out.println(song.getName() + " was removed from playlist.");
 
