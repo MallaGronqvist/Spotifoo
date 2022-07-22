@@ -36,7 +36,7 @@ public class MusicPlayerController {
         boolean again = true;
 
         do {
-            mainMenu.printMenuItems();
+            mainMenu.printMenuItems(false);
             switch (mainMenu.getMenuChoice()) {
                 case 1 -> musicPlayerView.chooseSongToPlayFromList(musicPlayerModel.getSongList());
                 case 2 -> musicPlayerView.filterByArtist(musicPlayerModel);
@@ -45,7 +45,7 @@ public class MusicPlayerController {
                 case 5 -> {
                     boolean printSearchMenu = true;
                     while(printSearchMenu){
-                        searchMenu.printMenuItems();
+                        searchMenu.printMenuItems(true);
                         switch (searchMenu.getMenuChoice()){
                             case 1 -> musicPlayerView.searchByName(musicPlayerModel);
                             case 2 -> musicPlayerView.superSearch(musicPlayerModel);
@@ -56,7 +56,7 @@ public class MusicPlayerController {
                 case 6 -> {
                     boolean printPlayListMenu = true;
                     while(printPlayListMenu){
-                        playListMenu.printMenuItems();
+                        playListMenu.printMenuItems(true);
                         switch (playListMenu.getMenuChoice()){
                             case 1 -> musicPlayerView.namePlaylist(musicPlayerModel);
                             case 2 -> musicPlayerView.addSongToPlaylist(musicPlayerModel);

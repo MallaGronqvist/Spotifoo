@@ -60,14 +60,14 @@ public class Menu {
         return 0;
     }
 
-    public void printMenuItems() {
+    public void printMenuItems(boolean enableReturnToPreviousMenu) {
         System.out.println(getMenuTitle());
         int i = 1;
         for (var item : menuItems) {
             System.out.println("[" + i + "] " + item.getMenuText());
             i++;
         }
-        if(!menuTitle.equals("MAIN MENU")){
+        if(enableReturnToPreviousMenu){
             System.out.println("[0] Back to previous menu");
         }
     }
