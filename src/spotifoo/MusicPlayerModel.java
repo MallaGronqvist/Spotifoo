@@ -39,8 +39,7 @@ public class MusicPlayerModel {
 
     public Song getSongFromSongList(int index){
         index--;
-        Song song = songList.get(index);
-        return song;
+        return songList.get(index);
     }
 
     public void addSongToPlaylist(Song song){
@@ -49,8 +48,7 @@ public class MusicPlayerModel {
 
     public Song getSongFromPlaylist(int index){
         index--;
-        Song song = playlist.getSong(index);
-        return song;
+        return playlist.getSong(index);
     }
 
     public void removeSongFromPlaylist(Song song){
@@ -59,10 +57,10 @@ public class MusicPlayerModel {
 
     public ArrayList<String> getArtists() {
         ArrayList<String> artists = new ArrayList<>();
+
         for (Song song : songList) {
-            String artist = song.getArtist();
-            if (!artists.contains(artist)) {
-                artists.add(artist);
+            if (!artists.contains(song.getArtist())) {
+                artists.add(song.getArtist());
             }
         }
         Collections.sort(artists);
@@ -73,9 +71,8 @@ public class MusicPlayerModel {
         ArrayList<String> albums = new ArrayList<>();
 
         for (Song song : songList) {
-            String album = song.getAlbum();
-            if (!albums.contains(album)) {
-                albums.add(album);
+            if (!albums.contains(song.getAlbum())) {
+                albums.add(song.getAlbum());
             }
         }
         Collections.sort(albums);
@@ -98,6 +95,7 @@ public class MusicPlayerModel {
 
     public ArrayList<Song> getSongsByAlbum(String chosenAlbum){
         ArrayList<Song> songsByAlbum = new ArrayList<>();
+
         for (Song song : songList) {
             if (song.getAlbum().equals(chosenAlbum)) {
                 songsByAlbum.add(song);
@@ -108,6 +106,7 @@ public class MusicPlayerModel {
 
     public ArrayList<Song> getSongsByGenre(Genre chosenGenre){
         ArrayList<Song> songsByGenre = new ArrayList<>();
+
         for (Song song : songList) {
             if (song.getGenre() == chosenGenre) {
                 songsByGenre.add(song);
@@ -118,9 +117,9 @@ public class MusicPlayerModel {
 
     public ArrayList<Song> getSongsBySearchName(String searchTerm) {
         ArrayList<Song> songsBySearchName = new ArrayList<>();
+
         for (Song song : songList) {
-            String songName = song.getName();
-            if (songName.toUpperCase().contains(searchTerm.toUpperCase())) {
+            if (song.getName().toUpperCase().contains(searchTerm.toUpperCase())) {
                 songsBySearchName.add(song);
             }
         }
@@ -129,9 +128,9 @@ public class MusicPlayerModel {
 
     public ArrayList<Song> getSongsByAnySearchTerm(String searchTerm) {
         ArrayList<Song> songsByAnySearchTerm = new ArrayList<>();
+
         for (Song song : songList) {
-            String songInfo = song.getSearchableString();
-            if (songInfo.toUpperCase().contains(searchTerm.toUpperCase())) {
+            if (song.getSearchableString().toUpperCase().contains(searchTerm.toUpperCase())) {
                 songsByAnySearchTerm.add(song);
             }
         }

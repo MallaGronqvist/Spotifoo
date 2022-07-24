@@ -32,7 +32,12 @@ public class Playlist {
     }
 
     public Song getSong(int index) {
-        Song song = playlist.get(index);
+        Song song = null;       // Is this try-catch needed?
+        try {
+            song = playlist.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Song could not be fetched from the playlist.");
+        }
         return song;
     }
 }
