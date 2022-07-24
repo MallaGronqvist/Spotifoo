@@ -6,12 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Did some more refactoring.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Did some more refactoring, focusing on removing temps.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spotifoo/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Playlist.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658493398544</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Did some more refactoring, focusing on removing temps.">
+      <created>1658673286611</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658673286611</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,7 +290,8 @@
     <MESSAGE value="Renamed classes and added WaitForEnter -function." />
     <MESSAGE value="Did some refactoring." />
     <MESSAGE value="Did some more refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some more refactoring." />
+    <MESSAGE value="Did some more refactoring, focusing on removing temps." />
+    <option name="LAST_COMMIT_MESSAGE" value="Did some more refactoring, focusing on removing temps." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

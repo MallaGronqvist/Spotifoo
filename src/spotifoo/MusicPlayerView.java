@@ -22,12 +22,10 @@ public class MusicPlayerView {
 
         if (backToPreviousMenu(index)) return;
 
-        Song song = songList.get(--index);
-
-        final boolean canPlaySong = playSong(song);
+        final boolean canPlaySong = playSong(songList.get(--index));
 
         if(canPlaySong){
-            displayPicture(song);
+            displayPicture(songList.get(index));
         }
 
         waitForEnter();
@@ -152,7 +150,7 @@ public class MusicPlayerView {
         System.out.println("[0] Back to previous menu.");
     }
 
-    private void clearConsoleScreen() {
+    private static void clearConsoleScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
@@ -166,9 +164,9 @@ public class MusicPlayerView {
         chooseSongToPlayFromList(musicPlayerModel.getSongsByAnySearchTerm(searchTerm));
     }
 
-    private String askForSearchTerm(String x, String x1) {
-        System.out.println(x);
-        System.out.println(x1);
+    private String askForSearchTerm(String firstLine, String secondLine) {
+        System.out.println(firstLine);
+        System.out.println(secondLine);
 
         Scanner keyboard = new Scanner(System.in);
         String searchTerm;
@@ -227,7 +225,7 @@ public class MusicPlayerView {
         waitForEnter();
     }
 
-    public void waitForEnter(){
+    private static void waitForEnter(){
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Press enter to continue...");

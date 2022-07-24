@@ -72,7 +72,7 @@ public class Menu {
         }
     }
 
-    private void clearConsoleScreen() {
+    private static void clearConsoleScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
