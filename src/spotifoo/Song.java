@@ -36,7 +36,9 @@ public class Song {
     }
 
     public String getSearchableString() {
-        return name + artist + album;
+        String songInfo = name + artist + album;
+        String searchable = songInfo.replaceAll("\\s","");
+        return searchable;
     }
 
     public String getMp3FileName() {

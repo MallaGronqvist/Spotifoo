@@ -1,13 +1,10 @@
 package spotifoo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class Menu {
-
-    public String getMenuTitle() {
-        return menuTitle;
-    }
 
     private class MenuItem {
 
@@ -21,12 +18,13 @@ public class Menu {
             this.menuText = menuText;
         }
 
-        public String getMenuText() {
+        @Override
+        public String toString() {
             return menuText;
         }
     }
 
-    private final Vector<MenuItem> menuItems = new Vector<>();
+    private final ArrayList<MenuItem> menuItems = new ArrayList<>();
     private String menuTitle;
 
     public void addItem(String menuText) {
@@ -38,43 +36,16 @@ public class Menu {
         this.menuTitle = menuTitle;
     }
 
-    public int getMenuChoice() {
-        boolean validInput = false;
-        while (!validInput) {
-            System.out.println("Enter your choice from the menu options:");
-            Scanner keyboard = new Scanner(System.in);
-            String choice = keyboard.nextLine();
-            try {
-                int i = Integer.parseInt(choice);
-                if (i >= 0 && i <= menuItems.size()) {
-                    validInput = true;
-                    clearConsoleScreen();
-                    return i;
-                } else throw new IllegalArgumentException();
-            } catch (IllegalArgumentException e) {
-                System.out.println("Invalid input. Try again.");
-            }
-        }
-
-        // An extra return statement to keep the compiler happy.
-        return 0;
+    public int getNumberOfOptions(){
+        return menuItems.size();
     }
 
-    public void printMenuItems(boolean enableReturnToPreviousMenu) {
-        System.out.println(getMenuTitle());
-        int i = 1;
-        for (var item : menuItems) {
-            System.out.println("[" + i + "] " + item.getMenuText());
-            i++;
-        }
-        if(enableReturnToPreviousMenu){
-            System.out.println("[0] Back to previous menu");
-        }
+    public String getMenuTitle() {
+        return menuTitle;
     }
 
-    private static void clearConsoleScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+    public ArrayList<MenuItem> getOptions() {
+        return menuItems;
     }
 }
 

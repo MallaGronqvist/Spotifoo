@@ -11,10 +11,36 @@ public class MusicPlayerModel {
     private final Playlist playlist;
     private static final String FILE_NAME = "assets/data.txt";
 
+    private final Menu mainMenu = new Menu();
+    private final Menu playListMenu = new Menu();
+
+    public Menu getMainMenu() {
+        return mainMenu;
+    }
+
+
+    public Menu getPlayListMenu() {
+        return playListMenu;
+    }
+
     public MusicPlayerModel() {
         songList = new ArrayList<>();
         playlist = new Playlist();
         playlist.setName("Unnamed");
+
+        mainMenu.setMenuTitle("MAIN MENU");
+        mainMenu.addItem("Songs");
+        mainMenu.addItem("Artists");
+        mainMenu.addItem("Albums");
+        mainMenu.addItem("Genres");
+        mainMenu.addItem("Search");
+        mainMenu.addItem("Playlist menu");
+
+        playListMenu.setMenuTitle(("PLAYLIST MENU"));
+        playListMenu.addItem("Name your playlist");
+        playListMenu.addItem("Add a song to your playlist");
+        playListMenu.addItem("Remove a song from your playlist");
+        playListMenu.addItem("Play a song from your playlist");
     }
 
     public void loadFromFile() {

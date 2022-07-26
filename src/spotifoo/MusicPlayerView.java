@@ -16,23 +16,29 @@ public class MusicPlayerView {
     private static final String GENRES_TITLE = "Available genres:";
 
     public void chooseSongToPlayFromList(ArrayList<Song> songList) {
-        printOptions(SONGS_TITLE, songList);
+        boolean displayOptions = true;
 
-        int index = getChoice(songList.size());
+        while(displayOptions) {
+            printOptions(SONGS_TITLE, songList, true);
 
-        if (backToPreviousMenu(index)) return;
+            int index = getChoice(songList.size(), true);
 
-        final boolean canPlaySong = playSong(songList.get(--index));
+            if (backToPreviousMenu(index)) {
+                displayOptions = false;
+                return;
+            }
 
-        if(canPlaySong){
-            displayPicture(songList.get(index));
+            final boolean canPlaySong = playSong(songList.get(--index));
+
+            if(canPlaySong){
+                displayPicture(songList.get(index));
+            }
+
+            waitForEnter();
         }
-
-        waitForEnter();
     }
 
     private boolean playSong(Song song){
-
         File mp3File = new File(song.getPathToMP3File());
 
             try {
@@ -48,7 +54,6 @@ public class MusicPlayerView {
     }
 
     private void displayPicture(Song song){
-
         File pngFile = new File(song.getPathToPNGFile());
 
         File placeHolderImage = new File(song.getPathToPlaceHolderFile());
@@ -65,9 +70,9 @@ public class MusicPlayerView {
     }
 
     public void filterByArtist(MusicPlayerModel musicPlayerModel) {
-        printOptions(ARTISTS_TITLE, musicPlayerModel.getArtists());
+        printOptions(ARTISTS_TITLE, musicPlayerModel.getArtists(), true);
 
-        int index = getChoice(musicPlayerModel.getArtists().size());
+        int index = getChoice(musicPlayerModel.getArtists().size(), true);
 
         if (backToPreviousMenu(index)) return;
 
@@ -77,9 +82,9 @@ public class MusicPlayerView {
     }
 
     public void filterByAlbum(MusicPlayerModel musicPlayerModel) {
-        printOptions(ALBUMS_TITLE, musicPlayerModel.getAlbums());
+        printOptions(ALBUMS_TITLE, musicPlayerModel.getAlbums(), true);
 
-        int index = getChoice(musicPlayerModel.getAlbums().size());
+        int index = getChoice(musicPlayerModel.getAlbums().size(), true);
 
         if (backToPreviousMenu(index)) return;
 
@@ -89,10 +94,10 @@ public class MusicPlayerView {
     }
 
     public void filterByGenre(MusicPlayerModel musicPlayerModel) {
-        printOptions(GENRES_TITLE, List.of(Genre.values()));
+        printOptions(GENRES_TITLE, List.of(Genre.values()), true);
 
         Genre[] genres = Genre.values();
-        int index = getChoice(genres.length);
+        int index = getChoice(genres.length, true);
 
         if (backToPreviousMenu(index)) return;
 
@@ -114,16 +119,17 @@ public class MusicPlayerView {
         chooseSongToPlayFromList(musicPlayerModel.getSongsBySearchName(searchTerm));
     }
 
-    private int getChoice(int numberOfOptions) {
+    public int getChoice(int numberOfOptions, boolean returnEnabled) {
         Scanner keyboard = new Scanner(System.in);
 
         int index = 0;
         boolean validInput = false;
         while (!validInput) {
-            System.out.println("Enter your choice:");
+            System.out.print("Enter your choice:");
             String choice = keyboard.nextLine();
             try {
                 index = Integer.parseInt(choice);
+                if(!returnEnabled && index == 0) throw new IllegalArgumentException();
                 if (index >= 0 && index <= numberOfOptions) {
                     validInput = true;
                 } else throw new IllegalArgumentException();
@@ -136,7 +142,7 @@ public class MusicPlayerView {
         return index;
     }
 
-    private void printOptions(String title, Collection<?> options) {
+    public void printOptions(String title, Collection<?> options, boolean enableReturnToPreviousMenu) {
         if (!options.isEmpty()) {
             System.out.println(title);
             int i = 1;
@@ -147,17 +153,30 @@ public class MusicPlayerView {
         } else {
             System.out.println("No results were found.");
         }
-        System.out.println("[0] Back to previous menu.");
+        if(enableReturnToPreviousMenu){
+            System.out.println("[0] Back to previous menu");
+        }
     }
 
     private static void clearConsoleScreen() {
+        /*
         System.out.print("\033[H\033[2J");
         System.out.flush();
+         */
+
+
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (IOException | InterruptedException e) {
+            String errorMessage = "An unexpected error has occurred, which may result in the program " +
+                    "not displaying correctly.";
+            System.out.println(errorMessage);
+        }
     }
 
     public void superSearch(MusicPlayerModel musicPlayerModel) {
         String searchTerm = askForSearchTerm("Search for  a song by any search term.",
-                "Write the search term and press enter:");
+                "Write the search term and press enter.");
 
         System.out.println("Results with search term " + searchTerm + ":");
 
@@ -180,12 +199,12 @@ public class MusicPlayerView {
     }
 
     public void addSongToPlaylist(MusicPlayerModel musicPlayerModel) {
-        printOptions(SONGS_TITLE, musicPlayerModel.getSongList());
+        printOptions(SONGS_TITLE, musicPlayerModel.getSongList(), true);
 
         System.out.println("Enter number of the song you want to add to playlist "
                 + musicPlayerModel.getPlaylist().getName() + ":");
 
-        int index = getChoice(musicPlayerModel.getSongList().size());
+        int index = getChoice(musicPlayerModel.getSongList().size(), true);
 
         if (backToPreviousMenu(index)) return;
 
@@ -197,24 +216,26 @@ public class MusicPlayerView {
     }
 
     public void namePlaylist(MusicPlayerModel musicPlayerModel) {
-        System.out.println("Enter a name for the playlist:");
-        Scanner keyboard = new Scanner(System.in);
-        String name = keyboard.nextLine();
+        musicPlayerModel.getPlaylist().setName(askForPlaylistName());
 
-        musicPlayerModel.getPlaylist().setName(name);
-
-        System.out.println("Your playlist has been named '" + name + "'.");
+        System.out.println("Your playlist has been named '" + musicPlayerModel.getPlaylist().getName() + "'.");
 
         waitForEnter();
     }
 
+    private static String askForPlaylistName() {
+        System.out.println("Enter a name for the playlist:");
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextLine();
+    }
+
     public void removeSongFromPlaylist(MusicPlayerModel musicPlayerModel) {
-        printOptions(SONGS_TITLE, musicPlayerModel.getPlaylist().getPlaylist());
+        printOptions(SONGS_TITLE, musicPlayerModel.getPlaylist().getPlaylist(), true);
 
         System.out.println("Enter number of the song you want to remove from playlist "
         + musicPlayerModel.getPlaylist().getName() + ":");
 
-        int index = getChoice(musicPlayerModel.getPlaylist().getPlaylist().size());
+        int index = getChoice(musicPlayerModel.getPlaylist().getPlaylist().size(), true);
 
         if (backToPreviousMenu(index)) return;
 
