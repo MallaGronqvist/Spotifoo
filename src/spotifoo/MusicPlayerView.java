@@ -159,12 +159,21 @@ public class MusicPlayerView {
     }
 
     private static void clearConsoleScreen() {
-        /*
+        final String os = System.getProperty("os.name");
+
+        if (os.contains("Windows")) {
+            clearConsoleWindows();
+        } else {
+            clearConsoleMac();
+        }
+    }
+
+    private static void clearConsoleMac() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-         */
+    }
 
-
+    private static void clearConsoleWindows() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (IOException | InterruptedException e) {
