@@ -6,9 +6,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Moved the menu from controller to view and fixed some minor bugs.">
+    <list default="true" id="8d1cd3f6-0176-4bcd-bdd0-0608f6b68559" name="Changes" comment="Changed the clearConsole -method to work on both mac and windows.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/MusicPlayerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spotifoo/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spotifoo/Song.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658821981568</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Changed the clearConsole -method to work on both mac and windows.">
+      <created>1658823526080</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1658823526080</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,7 +318,8 @@
     <MESSAGE value="Did some more refactoring." />
     <MESSAGE value="Did some more refactoring, focusing on removing temps." />
     <MESSAGE value="Moved the menu from controller to view and fixed some minor bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved the menu from controller to view and fixed some minor bugs." />
+    <MESSAGE value="Changed the clearConsole -method to work on both mac and windows." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the clearConsole -method to work on both mac and windows." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,3 +1,9 @@
+// A command line music player.
+// Java summer course 2022.
+// Author: Malla Grönqvist
+// MusicPlayerController.java
+//*****************************************************************************
+
 package spotifoo;
 
 public class MusicPlayerController {
@@ -17,7 +23,7 @@ public class MusicPlayerController {
 
         boolean again = true;
 
-        do {
+        while (again) {
             musicPlayerView.printOptions(musicPlayerModel.getMainMenu().getMenuTitle(),
                     musicPlayerModel.getMainMenu().getOptions(), false);
             switch (musicPlayerView.getChoice(musicPlayerModel.getMainMenu().getNumberOfOptions(),
@@ -29,11 +35,11 @@ public class MusicPlayerController {
                 case 5 -> musicPlayerView.superSearch(musicPlayerModel);
                 case 6 -> {
                     boolean printPlayListMenu = true;
-                    while(printPlayListMenu){
+                    while (printPlayListMenu) {
                         musicPlayerView.printOptions(musicPlayerModel.getPlayListMenu().getMenuTitle(),
                                 musicPlayerModel.getPlayListMenu().getOptions(), true);
                         switch (musicPlayerView.getChoice(musicPlayerModel.getPlayListMenu().getNumberOfOptions(),
-                                true)){
+                                true)) {
                             case 1 -> musicPlayerView.namePlaylist(musicPlayerModel);
                             case 2 -> musicPlayerView.addSongToPlaylist(musicPlayerModel);
                             case 3 -> musicPlayerView.removeSongFromPlaylist(musicPlayerModel);
@@ -43,7 +49,7 @@ public class MusicPlayerController {
                     }
                 }
             }
-        } while (again);
+        }
     }
 
     private void printWelcomeMessage() {

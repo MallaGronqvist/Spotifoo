@@ -1,3 +1,9 @@
+// A command line music player.
+// Java summer course 2022.
+// Author: Malla Grönqvist
+// MusicPlayerModel.java
+//*****************************************************************************
+
 package spotifoo;
 
 import java.io.BufferedReader;
@@ -7,21 +13,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class MusicPlayerModel {
+    private static final String FILE_NAME = "assets/data.txt";
     private final ArrayList<Song> songList;
     private final Playlist playlist;
-    private static final String FILE_NAME = "assets/data.txt";
-
     private final Menu mainMenu = new Menu();
     private final Menu playListMenu = new Menu();
-
-    public Menu getMainMenu() {
-        return mainMenu;
-    }
-
-
-    public Menu getPlayListMenu() {
-        return playListMenu;
-    }
 
     public MusicPlayerModel() {
         songList = new ArrayList<>();
@@ -41,6 +37,14 @@ public class MusicPlayerModel {
         playListMenu.addItem("Add a song to your playlist");
         playListMenu.addItem("Remove a song from your playlist");
         playListMenu.addItem("Play a song from your playlist");
+    }
+
+    public Menu getMainMenu() {
+        return mainMenu;
+    }
+
+    public Menu getPlayListMenu() {
+        return playListMenu;
     }
 
     public void loadFromFile() {
@@ -63,21 +67,21 @@ public class MusicPlayerModel {
         return songList;
     }
 
-    public Song getSongFromSongList(int index){
+    public Song getSongFromSongList(int index) {
         index--;
         return songList.get(index);
     }
 
-    public void addSongToPlaylist(Song song){
+    public void addSongToPlaylist(Song song) {
         playlist.addSong(song);
     }
 
-    public Song getSongFromPlaylist(int index){
+    public Song getSongFromPlaylist(int index) {
         index--;
         return playlist.getSong(index);
     }
 
-    public void removeSongFromPlaylist(Song song){
+    public void removeSongFromPlaylist(Song song) {
         playlist.removeSong(song);
     }
 
@@ -109,7 +113,7 @@ public class MusicPlayerModel {
         return playlist;
     }
 
-    public ArrayList<Song> getSongsByArtist(String chosenArtist){
+    public ArrayList<Song> getSongsByArtist(String chosenArtist) {
         ArrayList<Song> songsByArtist = new ArrayList<>();
         for (Song song : songList) {
             if (song.getArtist().equals(chosenArtist)) {
@@ -119,7 +123,7 @@ public class MusicPlayerModel {
         return songsByArtist;
     }
 
-    public ArrayList<Song> getSongsByAlbum(String chosenAlbum){
+    public ArrayList<Song> getSongsByAlbum(String chosenAlbum) {
         ArrayList<Song> songsByAlbum = new ArrayList<>();
 
         for (Song song : songList) {
@@ -130,7 +134,7 @@ public class MusicPlayerModel {
         return songsByAlbum;
     }
 
-    public ArrayList<Song> getSongsByGenre(Genre chosenGenre){
+    public ArrayList<Song> getSongsByGenre(Genre chosenGenre) {
         ArrayList<Song> songsByGenre = new ArrayList<>();
 
         for (Song song : songList) {

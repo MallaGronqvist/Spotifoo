@@ -1,18 +1,21 @@
+// A command line music player.
+// Java summer course 2022.
+// Author: Malla Grönqvist
+// Song.java
+//*****************************************************************************
+
 package spotifoo;
 
 public class Song {
+    private final static String SONGS_PATH = "assets/songs/";
+    private final static String PNG_PATH = "assets/albums/";
+    private final static String PLACEHOLDER_FILE = "assets/no-picture.png";
     private String name;
     private String artist;
     private String album;
     private Genre genre;
     private String mp3FileName;
     private String pngFileName;
-
-    private final static String SONGS_PATH = "assets/songs/";
-    private final static String PNG_PATH = "assets/albums/";
-    private final static String PLACEHOLDER_FILE = "assets/no-picture.png";
-
-    public Song() {}
 
     public Song(String[] stringArray) {
         try {
@@ -37,8 +40,7 @@ public class Song {
 
     public String getSearchableString() {
         String songInfo = name + artist + album;
-        String searchable = songInfo.replaceAll("\\s","");
-        return searchable;
+        return songInfo.replaceAll("\\s", "");
     }
 
     public String getMp3FileName() {
@@ -65,15 +67,15 @@ public class Song {
         return genre;
     }
 
-    public String getPathToMP3File(){
+    public String getPathToMP3File() {
         return SONGS_PATH + getMp3FileName();
     }
 
-    public String getPathToPNGFile(){
+    public String getPathToPNGFile() {
         return PNG_PATH + getPngFileName();
     }
 
-    public String getPathToPlaceHolderFile(){
+    public String getPathToPlaceHolderFile() {
         return PLACEHOLDER_FILE;
     }
 }
