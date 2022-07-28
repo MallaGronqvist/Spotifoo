@@ -1,4 +1,4 @@
-// A command line music player.
+// Project: Spotifoo, a command line music player.
 // Java summer course 2022.
 // Author: Malla Grönqvist
 // Playlist.java
@@ -38,7 +38,7 @@ public class Playlist {
     }
 
     public Song getSong(int index) {
-        Song song = null;       // Is this try-catch needed?
+        Song song = null;
         try {
             song = playlist.get(index);
         } catch (IndexOutOfBoundsException e) {

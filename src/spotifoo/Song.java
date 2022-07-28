@@ -1,4 +1,4 @@
-// A command line music player.
+// Project: Spotifoo, a command line music player.
 // Java summer course 2022.
 // Author: Malla Grönqvist
 // Song.java

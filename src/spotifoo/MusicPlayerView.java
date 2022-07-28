@@ -1,4 +1,4 @@
-// A command line music player.
+// Project: Spotifoo, a command line music player.
 // Java summer course 2022.
 // Author: Malla Grönqvist
 // MusicPlayerView.java
@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MusicPlayerView {
-
     private static final String SONGS_TITLE = "Available songs:";
     private static final String ALBUMS_TITLE = "Available albums:";
     private static final String ARTISTS_TITLE = "Available artists:";
@@ -48,7 +47,9 @@ public class MusicPlayerView {
 
     private static String askForPlaylistName() {
         System.out.println("Enter a name for the playlist:");
+
         Scanner keyboard = new Scanner(System.in);
+
         return keyboard.nextLine();
     }
 
@@ -95,6 +96,7 @@ public class MusicPlayerView {
         } catch (IOException | IllegalArgumentException e) {
             System.out.println("Could not play the song.");
         }
+
         return false;
     }
 
@@ -154,6 +156,7 @@ public class MusicPlayerView {
 
     public void filterByGenre(MusicPlayerModel musicPlayerModel) {
         boolean displayOptions = true;
+
         while (displayOptions) {
             printOptions(GENRES_TITLE, List.of(Genre.values()), true);
 
@@ -197,6 +200,7 @@ public class MusicPlayerView {
         }
 
         clearConsoleScreen();
+
         return index;
     }
 
@@ -211,6 +215,7 @@ public class MusicPlayerView {
         } else {
             System.out.println("No results were found.");
         }
+
         if (enableReturnToPreviousMenu) {
             System.out.println("[0] Back to previous menu");
         }
@@ -236,6 +241,7 @@ public class MusicPlayerView {
 
     public void playSongFromPlaylist(MusicPlayerModel musicPlayerModel) {
         System.out.println(musicPlayerModel.getPlaylist().getName());
+
         chooseSongToPlayFromList(musicPlayerModel.getPlaylist().getPlaylist());
     }
 

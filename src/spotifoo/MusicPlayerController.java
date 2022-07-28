@@ -1,4 +1,4 @@
-// A command line music player.
+// Project: Spotifoo, a command line music player.
 // Java summer course 2022.
 // Author: Malla Grönqvist
 // MusicPlayerController.java
@@ -21,9 +21,9 @@ public class MusicPlayerController {
 
         printWelcomeMessage();
 
-        boolean again = true;
+        boolean runProgram = true;
 
-        while (again) {
+        while (runProgram) {
             musicPlayerView.printOptions(musicPlayerModel.getMainMenu().getMenuTitle(),
                     musicPlayerModel.getMainMenu().getOptions(), false);
             switch (musicPlayerView.getChoice(musicPlayerModel.getMainMenu().getNumberOfOptions(),

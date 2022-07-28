@@ -1,4 +1,4 @@
-// A command line music player.
+// Project: Spotifoo, a command line music player.
 // Java summer course 2022.
 // Author: Malla Grönqvist
 // MusicPlayerModel.java
@@ -93,7 +93,9 @@ public class MusicPlayerModel {
                 artists.add(song.getArtist());
             }
         }
+
         Collections.sort(artists);
+
         return artists;
     }
 
@@ -105,7 +107,9 @@ public class MusicPlayerModel {
                 albums.add(song.getAlbum());
             }
         }
+
         Collections.sort(albums);
+
         return albums;
     }
 
@@ -115,11 +119,13 @@ public class MusicPlayerModel {
 
     public ArrayList<Song> getSongsByArtist(String chosenArtist) {
         ArrayList<Song> songsByArtist = new ArrayList<>();
+
         for (Song song : songList) {
             if (song.getArtist().equals(chosenArtist)) {
                 songsByArtist.add(song);
             }
         }
+
         return songsByArtist;
     }
 
@@ -131,6 +137,7 @@ public class MusicPlayerModel {
                 songsByAlbum.add(song);
             }
         }
+
         return songsByAlbum;
     }
 
@@ -142,6 +149,7 @@ public class MusicPlayerModel {
                 songsByGenre.add(song);
             }
         }
+
         return songsByGenre;
     }
 
@@ -153,6 +161,7 @@ public class MusicPlayerModel {
                 songsBySearchName.add(song);
             }
         }
+
         return songsBySearchName;
     }
 
@@ -164,6 +173,7 @@ public class MusicPlayerModel {
                 songsByAnySearchTerm.add(song);
             }
         }
+
         return songsByAnySearchTerm;
     }
 }

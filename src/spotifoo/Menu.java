@@ -1,4 +1,4 @@
-// A command line music player.
+// Project: Spotifoo, a command line music player.
 // Java summer course 2022.
 // Author: Malla Grönqvist
 // Menu.java
@@ -34,7 +34,6 @@ public class Menu {
     }
 
     private static class MenuItem {
-
         private final String menuText;
 
         public MenuItem() {
