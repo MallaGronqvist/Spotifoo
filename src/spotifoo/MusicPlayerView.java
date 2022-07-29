@@ -1,5 +1,5 @@
 // Project: Spotifoo, a command line music player.
-// Java summer course 2022.
+// Java summer course 2022 with Novare Potential.
 // Author: Malla Grönqvist
 // MusicPlayerView.java
 //*****************************************************************************
